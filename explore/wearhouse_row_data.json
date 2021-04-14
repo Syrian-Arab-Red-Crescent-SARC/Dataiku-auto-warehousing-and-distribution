@@ -5,7 +5,41 @@
     "columnsSelection": {
       "mode": "ALL"
     },
-    "columnWidthsByName": {},
+    "columnWidthsByName": {
+      "123": 190,
+      "Month": 100,
+      "Branch": 100,
+      "Sub-Branch": 100,
+      "Warehouse Name": 120,
+      "Partner": 100,
+      "Item": 190,
+      "Sector": 100,
+      "Unit": 100,
+      "CTN": 100,
+      "Other Items": 100,
+      "Open. Balance": 113,
+      "Total IN": 100,
+      "Receiving Date": 120,
+      "Goods Received Note": 158,
+      "Total out": 100,
+      "Delivery Note": 113,
+      "Location of sent Items": 180,
+      "Sending Date": 105,
+      "Loss": 100,
+      "Reasons for Loss": 135,
+      "Damage": 100,
+      "Reasons for Damage": 150,
+      "Inventory": 100,
+      "Closing Balance": 128,
+      "Distribtution": 113,
+      "Return": 100,
+      "Transfer": 100,
+      "Convoys": 100,
+      "Nots": 100,
+      "Branch Code": 100,
+      "Sub Branch code": 128,
+      "Unique Items Code": 143
+    },
     "coloring": {
       "scheme": "MEANING_AND_STATUS",
       "individualColumns": [],
@@ -34,13 +68,15 @@
         "maxReadUncompressedBytes": -1
       },
       "autoRefreshSample": false,
-      "_refreshTrigger": 0
+      "_refreshTrigger": 1
     },
     "vizSampling": {
       "autoRefreshSample": false,
       "_refreshTrigger": 0
     },
-    "exploreUIParams": {},
+    "exploreUIParams": {
+      "autoRefresh": true
+    },
     "globalSearchQuery": "",
     "explorationFilters": [],
     "previewMode": "ALL_ROWS"
@@ -117,6 +153,7 @@
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
         },
+        "computeMode": "NORMAL",
         "xAxisMode": "NORMAL",
         "yAxisMode": "NORMAL",
         "pieOptions": {
