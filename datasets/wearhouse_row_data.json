@@ -38,11 +38,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 24,
+    "versionNumber": 25,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1614084530443
+    "lastModifiedOn": 1618400027608
   },
   "creationTag": {
     "versionNumber": 0,
@@ -128,7 +128,8 @@
       },
       {
         "name": "Total out",
-        "type": "string"
+        "type": "string",
+        "meaning": "LongMeaning"
       },
       {
         "name": "Delivery Note",
@@ -205,6 +206,7 @@
     ],
     "userModified": true
   },
+  "dkuProperties": [],
   "metrics": {
     "probes": [
       {
