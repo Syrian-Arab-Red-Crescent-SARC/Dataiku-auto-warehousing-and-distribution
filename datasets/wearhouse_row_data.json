@@ -38,11 +38,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 25,
+    "versionNumber": 26,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1618400027608
+    "lastModifiedOn": 1618400035083
   },
   "creationTag": {
     "versionNumber": 0,
@@ -128,7 +128,7 @@
       },
       {
         "name": "Total out",
-        "type": "string",
+        "type": "int",
         "meaning": "LongMeaning"
       },
       {
