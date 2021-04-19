@@ -5,34 +5,9 @@
       "grid": {
         "tiles": [
           {
-            "tileType": "INSIGHT",
-            "box": {
-              "top": 37,
-              "left": 0,
-              "width": 12,
-              "height": 5
-            },
-            "clickAction": "OPEN_INSIGHT",
-            "tileParams": {
-              "showName": true,
-              "showDescription": true,
-              "showCustomFields": true,
-              "showStorageType": false,
-              "showMeaning": false,
-              "showProgressBar": false
-            },
-            "autoLoad": true,
-            "showTitle": "YES",
-            "borderColor": "",
-            "insightId": "utrEjVF",
-            "insightType": "dataset_table",
-            "displayMode": "INSIGHT",
-            "resizeImageMode": "FIT_SIZE"
-          },
-          {
             "tileType": "IMAGE",
             "box": {
-              "top": 18,
+              "top": 7,
               "left": 6,
               "width": 6,
               "height": 4
@@ -45,28 +20,9 @@
             "resizeImageMode": "FIT_SIZE"
           },
           {
-            "tileType": "IFRAME",
-            "box": {
-              "top": 12,
-              "left": 0,
-              "width": 6,
-              "height": 10
-            },
-            "clickAction": "DO_NOTHING",
-            "tileParams": {
-              "url": "https://sarc-syria.org/category/%d8%a3%d8%ae%d8%a8%d8%a7%d8%b1-%d8%a7%d9%84%d9%81%d8%b1%d9%88%d8%b9/%d8%b1%d9%8a%d9%81-%d8%af%d9%85%d8%b4%d9%82/",
-              "loadTimeoutInSeconds": 0
-            },
-            "autoLoad": true,
-            "showTitle": "NO",
-            "title": "github page test",
-            "displayMode": "INSIGHT",
-            "resizeImageMode": "FIT_SIZE"
-          },
-          {
             "tileType": "INSIGHT",
             "box": {
-              "top": 22,
+              "top": 11,
               "left": 0,
               "width": 12,
               "height": 9
@@ -83,9 +39,9 @@
           {
             "tileType": "INSIGHT",
             "box": {
-              "top": 7,
-              "left": 0,
-              "width": 12,
+              "top": 2,
+              "left": 6,
+              "width": 6,
               "height": 5
             },
             "clickAction": "OPEN_INSIGHT",
@@ -99,29 +55,6 @@
             "autoLoad": true,
             "showTitle": "YES",
             "insightId": "FZoebph",
-            "insightType": "chart",
-            "displayMode": "INSIGHT",
-            "resizeImageMode": "FIT_SIZE"
-          },
-          {
-            "tileType": "INSIGHT",
-            "box": {
-              "top": 31,
-              "left": 0,
-              "width": 12,
-              "height": 6
-            },
-            "clickAction": "OPEN_INSIGHT",
-            "tileParams": {
-              "showXAxis": true,
-              "showYAxis": true,
-              "showLegend": false,
-              "showTooltips": true,
-              "autoPlayAnimation": true
-            },
-            "autoLoad": true,
-            "showTitle": "YES",
-            "insightId": "k2auRrW",
             "insightType": "chart",
             "displayMode": "INSIGHT",
             "resizeImageMode": "FIT_SIZE"
@@ -144,32 +77,9 @@
           {
             "tileType": "INSIGHT",
             "box": {
-              "top": 12,
-              "left": 6,
-              "width": 6,
-              "height": 6
-            },
-            "clickAction": "OPEN_INSIGHT",
-            "tileParams": {
-              "showXAxis": true,
-              "showYAxis": true,
-              "showLegend": true,
-              "showTooltips": true,
-              "autoPlayAnimation": true
-            },
-            "autoLoad": true,
-            "showTitle": "YES",
-            "insightId": "8QKxzQ3",
-            "insightType": "chart",
-            "displayMode": "INSIGHT",
-            "resizeImageMode": "FIT_SIZE"
-          },
-          {
-            "tileType": "INSIGHT",
-            "box": {
               "top": 2,
               "left": 0,
-              "width": 12,
+              "width": 6,
               "height": 5
             },
             "clickAction": "OPEN_INSIGHT",
@@ -197,11 +107,11 @@
   "name": "SARC_RD_WearHouse_Reports\u0027s default dashboard",
   "showGrid": true,
   "versionTag": {
-    "versionNumber": 40,
+    "versionNumber": 41,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1618873091892
+    "lastModifiedOn": 1618873095516
   },
   "creationTag": {
     "versionNumber": 0,
