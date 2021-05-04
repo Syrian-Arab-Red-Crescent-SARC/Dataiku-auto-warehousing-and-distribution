@@ -52,7 +52,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "FilterOnValue",
@@ -64,6 +64,26 @@
         ],
         "values": [
           "Without Distribution - غير مذكور بالتوزيع"
+        ],
+        "matchingMode": "FULL_STRING",
+        "action": "REMOVE_ROW",
+        "appliesTo": "SINGLE_COLUMN"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FilterOnValue",
+      "params": {
+        "normalizationMode": "EXACT",
+        "booleanMode": "AND",
+        "columns": [
+          "Return"
+        ],
+        "values": [
+          "مرتجع من إجمالي الصادر - Return From Total Out"
         ],
         "matchingMode": "FULL_STRING",
         "action": "REMOVE_ROW",
@@ -131,7 +151,12 @@
     "Total_out": 100,
     "Inventory": 100
   },
-  "sorting": [],
+  "sorting": [
+    {
+      "column": "Return",
+      "ascending": true
+    }
+  ],
   "globalSearchQuery": "",
   "coloring": {
     "scheme": "MEANING_AND_STATUS",
