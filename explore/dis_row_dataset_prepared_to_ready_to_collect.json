@@ -52,7 +52,7 @@
     },
     "sorting": [
       {
-        "column": "Convoys",
+        "column": "Nots",
         "ascending": true
       }
     ],
