@@ -52,8 +52,8 @@
     },
     "sorting": [
       {
-        "column": "Total Number of Beneficiaries",
-        "ascending": true
+        "column": "CTN",
+        "ascending": false
       }
     ],
     "analysisColumnData": {},
@@ -88,7 +88,41 @@
       "autoRefresh": true
     },
     "globalSearchQuery": "",
-    "explorationFilters": [],
+    "explorationFilters": [
+      {
+        "column": "Partner",
+        "type": "columnFilter",
+        "currentMode": "FACET",
+        "active": true,
+        "facet": {
+          "type": "facet",
+          "column": "Partner",
+          "columnType": "ALPHANUM",
+          "currentMode": "ALPHANUM",
+          "sort": "count",
+          "selectedValues": {}
+        },
+        "alphanumFilter": {
+          "type": "alphanum",
+          "column": "Partner",
+          "values": [],
+          "params": {
+            "mode": "full_string",
+            "normalization": "exact"
+          }
+        },
+        "validityFilter": {
+          "type": "validity",
+          "column": "Partner",
+          "params": {
+            "type": "Text",
+            "ok": true,
+            "nok": true,
+            "empty": true
+          }
+        }
+      }
+    ],
     "previewMode": "ALL_ROWS"
   },
   "charts": []
