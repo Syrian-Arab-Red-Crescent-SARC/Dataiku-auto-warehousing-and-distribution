@@ -50,7 +50,12 @@
       "individualColumns": [],
       "valueColoringMode": "HASH"
     },
-    "sorting": [],
+    "sorting": [
+      {
+        "column": "Number of Families",
+        "ascending": true
+      }
+    ],
     "analysisColumnData": {},
     "explorationSampling": {
       "selection": {
