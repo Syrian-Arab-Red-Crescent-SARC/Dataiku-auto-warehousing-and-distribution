@@ -52,7 +52,7 @@
     },
     "sorting": [
       {
-        "column": "Number of Families",
+        "column": "Total Number of Beneficiaries",
         "ascending": true
       }
     ],
