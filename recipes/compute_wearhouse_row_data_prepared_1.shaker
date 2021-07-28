@@ -250,7 +250,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "StringTransformer",
@@ -258,6 +258,21 @@
         "mode": "TO_UPPER",
         "columns": [
           "Partner"
+        ],
+        "appliesTo": "SINGLE_COLUMN",
+        "truncate_limit": 0
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "StringTransformer",
+      "params": {
+        "mode": "TO_UPPER",
+        "columns": [
+          "CTN"
         ],
         "appliesTo": "SINGLE_COLUMN",
         "truncate_limit": 0
@@ -291,9 +306,11 @@
     "Delivery_Note": 113,
     "Sub Branch code": 128,
     "Total out": 100,
+    "Column2": 148,
     "Other Items": 100,
     "Reasons for Loss": 135,
     "Warehouse_Name": 155,
+    "Column1": 100,
     "Location of sent Items": 180,
     "123": 183,
     "Receiving Date_parsed": 173,
