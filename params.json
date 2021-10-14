@@ -169,8 +169,9 @@
       }
     }
   },
-  "name": "SARC_HQ",
+  "name": "SARC_HQ2",
   "imgPattern": 8,
+  "showInitials": false,
   "metrics": {
     "probes": [],
     "engineConfig": {
@@ -226,11 +227,11 @@
     }
   },
   "versionTag": {
-    "versionNumber": 22,
+    "versionNumber": 27,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1634205312562
+    "lastModifiedOn": 1634205403103
   },
   "creationTag": {
     "versionNumber": 0,
@@ -239,69 +240,13 @@
     },
     "lastModifiedOn": 1609528131609
   },
-  "shortDesc": "Test instance generated from app designer",
+  "shortDesc": "Version 2.0",
   "tags": [
     "app instance",
     "imported"
   ],
   "customFields": {},
   "checklists": {
-    "checklists": [
-      {
-        "title": "Your new project\u0027s Todo",
-        "createdOn": 0,
-        "items": [
-          {
-            "done": true,
-            "text": "Create the project",
-            "createdOn": 1609528131624,
-            "createdBy": "admin",
-            "stateChangedOn": 0
-          },
-          {
-            "done": false,
-            "text": "Set a project image (click on the color next to the project title)",
-            "createdOn": 1609528131624,
-            "createdBy": "admin",
-            "stateChangedOn": 0
-          },
-          {
-            "done": false,
-            "text": "Import your [first dataset](projects/SARC_RD_WEARHOUSE_REPORTS/datasets/new/)",
-            "createdOn": 1609528131624,
-            "createdBy": "admin",
-            "stateChangedOn": 0
-          },
-          {
-            "done": false,
-            "text": "Organize your work by replacing this with a real todo",
-            "createdOn": 1609528131624,
-            "createdBy": "admin",
-            "stateChangedOn": 0
-          },
-          {
-            "done": true,
-            "text": "add random ID",
-            "createdOn": 1609562944210,
-            "createdBy": "admin",
-            "stateChangedOn": 0
-          },
-          {
-            "done": false,
-            "text": "active sandbox for vmwhere",
-            "createdOn": 1609562953820,
-            "createdBy": "admin",
-            "stateChangedOn": 0
-          },
-          {
-            "done": false,
-            "text": "check open balnae",
-            "createdOn": 1609562959827,
-            "createdBy": "admin",
-            "stateChangedOn": 0
-          }
-        ]
-      }
-    ]
+    "checklists": []
   }
 }
