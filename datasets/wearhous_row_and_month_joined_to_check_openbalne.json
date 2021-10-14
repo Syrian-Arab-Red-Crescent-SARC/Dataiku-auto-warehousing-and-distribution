@@ -75,7 +75,7 @@
   "tags": [],
   "params": {
     "connection": "filesystem_managed",
-    "path": "${projectKey}/wearhous_row_and_month_joined_to_check_openbalne",
+    "path": "/SARC_HQ2.wearhous_row_and_month_joined_to_check_openbalne",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -161,6 +161,7 @@
     ],
     "userModified": true
   },
+  "dkuProperties": [],
   "metrics": {
     "probes": [
       {

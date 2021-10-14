@@ -75,7 +75,7 @@
   "tags": [],
   "params": {
     "connection": "filesystem_managed",
-    "path": "${projectKey}/final_check",
+    "path": "/SARC_HQ2.final_check",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -171,6 +171,7 @@
     ],
     "userModified": true
   },
+  "dkuProperties": [],
   "metrics": {
     "probes": [
       {

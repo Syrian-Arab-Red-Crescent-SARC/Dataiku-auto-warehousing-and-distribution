@@ -75,7 +75,7 @@
   "tags": [],
   "params": {
     "connection": "filesystem_managed",
-    "path": "${projectKey}/wearhouse_row_data_for_check_wiht_dis",
+    "path": "/SARC_HQ2.wearhouse_row_data_for_check_wiht_dis",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -121,6 +121,7 @@
     ],
     "userModified": true
   },
+  "dkuProperties": [],
   "metrics": {
     "probes": [
       {

@@ -76,7 +76,7 @@
   "tags": [],
   "params": {
     "connection": "filesystem_managed",
-    "path": "/SARC_RD_WEARHOUSE_REPORTS_7v8q5FRU.wearhouse_row_data_prepared_grouping",
+    "path": "/SARC_HQ2.wearhouse_row_data_prepared_grouping",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -150,6 +150,7 @@
     ],
     "userModified": true
   },
+  "dkuProperties": [],
   "metrics": {
     "probes": [
       {

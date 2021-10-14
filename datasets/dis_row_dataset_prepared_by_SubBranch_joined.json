@@ -75,7 +75,7 @@
   "tags": [],
   "params": {
     "connection": "filesystem_managed",
-    "path": "${projectKey}/dis_row_dataset_prepared_by_SubBranch_joined",
+    "path": "/SARC_HQ2.dis_row_dataset_prepared_by_SubBranch_joined",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -133,6 +133,7 @@
     ],
     "userModified": true
   },
+  "dkuProperties": [],
   "metrics": {
     "probes": [
       {

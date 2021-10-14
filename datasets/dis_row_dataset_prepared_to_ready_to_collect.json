@@ -76,7 +76,7 @@
   "tags": [],
   "params": {
     "connection": "filesystem_managed",
-    "path": "${projectKey}/dis_row_dataset_prepared_to_ready_to_collect",
+    "path": "/SARC_HQ2.dis_row_dataset_prepared_to_ready_to_collect",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -242,6 +242,7 @@
     ],
     "userModified": true
   },
+  "dkuProperties": [],
   "metrics": {
     "probes": [
       {
