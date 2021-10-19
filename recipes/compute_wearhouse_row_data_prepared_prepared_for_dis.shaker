@@ -83,7 +83,7 @@
           "Return"
         ],
         "values": [
-          "مرتجع من إجمالي الصادر - Return From Total Out"
+          "مرتجع من إجمالي الوارد - Return from Total IN"
         ],
         "matchingMode": "FULL_STRING",
         "action": "REMOVE_ROW",
