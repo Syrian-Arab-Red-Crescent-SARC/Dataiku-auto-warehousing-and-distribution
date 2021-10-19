@@ -291,10 +291,7 @@ def oldWarCheck():
 def oldWarCheck():
     dataset_to_check = dataiku.Dataset("final_check")
     df = dataset_to_check.get_dataframe()
-    def style_negative(v, props=''):
-        return props if v < 0 else None
-    s2 = df.style.applymap(style_negative, props='color:red;')\
-                  .applymap(lambda v: 'opacity: 20%;' if (v <= 0.3) and (v >= -0.3) else None)
+    s2 = df.style.applymap(lambda x: "background-color: red" if (str(df.Partner)=="ICRC") else "background-color: white")
     return s2
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
