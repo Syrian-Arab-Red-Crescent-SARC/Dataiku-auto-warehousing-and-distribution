@@ -158,7 +158,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Branch",
-      "count": true,
+      "count": false,
       "$idx": 0,
       "sum": false,
       "concat": false,
@@ -177,7 +177,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Sector",
-      "count": true,
+      "count": false,
       "$idx": 1,
       "sum": false,
       "concat": false,
@@ -196,7 +196,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Other_Items",
-      "count": true,
+      "count": false,
       "$idx": 2,
       "sum": false,
       "concat": false,
@@ -253,7 +253,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Receiving_Date",
-      "count": true,
+      "count": false,
       "$idx": 5,
       "sum": false,
       "concat": false,
@@ -272,7 +272,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Goods_Received_Note",
-      "count": true,
+      "count": false,
       "$idx": 6,
       "sum": false,
       "concat": false,
@@ -310,7 +310,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Delivery_Note",
-      "count": true,
+      "count": false,
       "$idx": 8,
       "sum": false,
       "concat": false,
@@ -329,7 +329,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Location_of_sent_Items",
-      "count": true,
+      "count": false,
       "$idx": 9,
       "sum": false,
       "concat": false,
@@ -348,7 +348,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Sending_Date",
-      "count": true,
+      "count": false,
       "$idx": 10,
       "sum": false,
       "concat": false,
@@ -386,7 +386,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Reasons_for_Loss",
-      "count": true,
+      "count": false,
       "$idx": 12,
       "sum": false,
       "concat": false,
@@ -424,7 +424,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Reasons_for_Damage",
-      "count": true,
+      "count": false,
       "$idx": 14,
       "sum": false,
       "concat": false,
@@ -481,7 +481,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Distribtution",
-      "count": true,
+      "count": false,
       "$idx": 17,
       "sum": false,
       "concat": false,
@@ -500,7 +500,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Return",
-      "count": true,
+      "count": false,
       "$idx": 18,
       "sum": false,
       "concat": false,
@@ -519,7 +519,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Transfer",
-      "count": true,
+      "count": false,
       "$idx": 19,
       "sum": false,
       "concat": false,
@@ -538,7 +538,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Convoys",
-      "count": true,
+      "count": false,
       "$idx": 20,
       "sum": false,
       "concat": false,
@@ -557,7 +557,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Nots",
-      "count": true,
+      "count": false,
       "$idx": 21,
       "sum": false,
       "concat": false,
@@ -576,7 +576,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Branch_Code",
-      "count": true,
+      "count": false,
       "$idx": 22,
       "sum": false,
       "concat": false,
@@ -595,7 +595,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Sub_Branch_code",
-      "count": true,
+      "count": false,
       "$idx": 23,
       "sum": false,
       "concat": false,
@@ -614,7 +614,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "123",
-      "count": true,
+      "count": false,
       "$idx": 24,
       "sum": false,
       "concat": false,
@@ -633,7 +633,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Unique_Items_Code",
-      "count": true,
+      "count": false,
       "$idx": 25,
       "sum": false,
       "concat": false,
@@ -652,7 +652,7 @@
       "max": false,
       "firstLastNotNull": false,
       "column": "Receiving_Date_iso",
-      "count": true,
+      "count": false,
       "$idx": 26,
       "sum": false,
       "concat": false,
@@ -670,7 +670,7 @@
       "last": false,
       "max": false,
       "column": "id",
-      "count": true,
+      "count": false,
       "$idx": 27,
       "sum": false,
       "concat": false,
@@ -686,7 +686,7 @@
       "last": false,
       "max": false,
       "column": "timestamp ",
-      "count": true,
+      "count": false,
       "$idx": 28,
       "sum": false,
       "concat": false,
@@ -771,18 +771,6 @@
             "type": "string"
           },
           {
-            "name": "Branch_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Sector_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Other_Items_count",
-            "type": "bigint"
-          },
-          {
             "name": "Open_Balance_sum",
             "type": "bigint"
           },
@@ -791,27 +779,7 @@
             "type": "bigint"
           },
           {
-            "name": "Receiving_Date_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Goods_Received_Note_count",
-            "type": "bigint"
-          },
-          {
             "name": "Total_out_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "Delivery_Note_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Location_of_sent_Items_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Sending_Date_count",
             "type": "bigint"
           },
           {
@@ -819,15 +787,7 @@
             "type": "bigint"
           },
           {
-            "name": "Reasons_for_Loss_count",
-            "type": "bigint"
-          },
-          {
             "name": "Damage_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "Reasons_for_Damage_count",
             "type": "bigint"
           },
           {
@@ -836,54 +796,6 @@
           },
           {
             "name": "Closing_Balance_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "Distribtution_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Return_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Transfer_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Convoys_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Nots_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Branch_Code_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Sub_Branch_code_count",
-            "type": "bigint"
-          },
-          {
-            "name": "123_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Unique_Items_Code_count",
-            "type": "bigint"
-          },
-          {
-            "name": "Receiving_Date_iso_count",
-            "type": "bigint"
-          },
-          {
-            "name": "id_count",
-            "type": "bigint"
-          },
-          {
-            "name": "timestamp _count",
             "type": "bigint"
           },
           {
