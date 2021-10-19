@@ -60,11 +60,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 11,
+    "versionNumber": 12,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1614066624374
+    "lastModifiedOn": 1634635785844
   },
   "creationTag": {
     "versionNumber": 0,
@@ -116,6 +116,18 @@
         "type": "string"
       },
       {
+        "name": "Branch_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Sector_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Other_Items_count",
+        "type": "bigint"
+      },
+      {
         "name": "Open_Balance_sum",
         "type": "bigint"
       },
@@ -124,7 +136,27 @@
         "type": "bigint"
       },
       {
+        "name": "Receiving_Date_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Goods_Received_Note_count",
+        "type": "bigint"
+      },
+      {
         "name": "Total_out_sum",
+        "type": "bigint"
+      },
+      {
+        "name": "Delivery_Note_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Location_of_sent_Items_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Sending_Date_count",
         "type": "bigint"
       },
       {
@@ -132,7 +164,15 @@
         "type": "bigint"
       },
       {
+        "name": "Reasons_for_Loss_count",
+        "type": "bigint"
+      },
+      {
         "name": "Damage_sum",
+        "type": "bigint"
+      },
+      {
+        "name": "Reasons_for_Damage_count",
         "type": "bigint"
       },
       {
@@ -141,6 +181,54 @@
       },
       {
         "name": "Closing_Balance_sum",
+        "type": "bigint"
+      },
+      {
+        "name": "Distribtution_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Return_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Transfer_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Convoys_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Nots_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Branch_Code_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Sub_Branch_code_count",
+        "type": "bigint"
+      },
+      {
+        "name": "123_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Unique_Items_Code_count",
+        "type": "bigint"
+      },
+      {
+        "name": "Receiving_Date_iso_count",
+        "type": "bigint"
+      },
+      {
+        "name": "id_count",
+        "type": "bigint"
+      },
+      {
+        "name": "timestamp _count",
         "type": "bigint"
       },
       {
