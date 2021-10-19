@@ -133,7 +133,7 @@
           "envMode": "INHERIT"
         },
         "stopOnError": true,
-        "pythonSourceCode": "import uuid\nfrom datetime import datetime\n\ndef process(row):\n    # In \u0027cell\u0027 mode, the process function must return\n    # a single cell value for each row,\n    # which will be affected to a new column.\n    # The \u0027row\u0027 argument is a dictionary of columns of the row`\n\n    timestamp \u003d datetime.now().strftime(\"%Y-%m-%d-%H-%M%S\")\n\n\n\n    return str(timestamp)\n\n\n",
+        "pythonSourceCode": "import uuid\nfrom datetime import datetime\n\ndef process(row):\n    # In \u0027cell\u0027 mode, the process function must return\n    # a single cell value for each row,\n    # which will be affected to a new column.\n    # The \u0027row\u0027 argument is a dictionary of columns of the row`\n\n    timestamp \u003d datetime.now().strftime(\"%Y-%m-%d/%H-%M\")\n\n\n\n    return str(timestamp)\n\n\n",
         "useKernel": false,
         "column": "timestamp",
         "sourceColumnsList": [],
