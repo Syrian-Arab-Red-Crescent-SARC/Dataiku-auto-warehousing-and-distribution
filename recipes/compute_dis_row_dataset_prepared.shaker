@@ -104,20 +104,6 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
-      "type": "FillEmptyWithValue",
-      "params": {
-        "columns": [
-          "CTN"
-        ],
-        "appliesTo": "SINGLE_COLUMN",
-        "value": "0"
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
       "type": "PythonUDF",
       "params": {
         "mode": "CELL",
