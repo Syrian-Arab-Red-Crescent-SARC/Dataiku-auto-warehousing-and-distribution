@@ -80,9 +80,22 @@
       "type": "FillEmptyWithValue",
       "params": {
         "columns": [
-          "Other Items"
+          "Other Items",
+          "CTN",
+          "District",
+          "SubDistrict",
+          "Community",
+          "Location",
+          "Dis_type",
+          "Total Number of Beneficiaries",
+          "Beneficiary Condition",
+          "Beneficiary condition main",
+          "GovCode",
+          "DistrictCode",
+          "SubDistrictCode",
+          "Community Pcode"
         ],
-        "appliesTo": "SINGLE_COLUMN",
+        "appliesTo": "COLUMNS",
         "value": "0"
       },
       "alwaysShowComment": false
