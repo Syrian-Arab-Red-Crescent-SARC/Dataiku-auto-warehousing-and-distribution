@@ -59,11 +59,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 1,
+    "versionNumber": 2,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1615391761975
+    "lastModifiedOn": 1634635995824
   },
   "creationTag": {
     "versionNumber": 0,
@@ -86,11 +86,6 @@
   },
   "schema": {
     "columns": [
-      {
-        "name": "id",
-        "type": "string",
-        "meaning": "Text"
-      },
       {
         "name": "Month",
         "type": "string"
@@ -229,6 +224,11 @@
       {
         "name": "Receiving_Date_iso",
         "type": "string"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "meaning": "Text"
       },
       {
         "name": "timestamp ",
