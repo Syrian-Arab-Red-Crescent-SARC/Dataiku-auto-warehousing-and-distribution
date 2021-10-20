@@ -202,13 +202,13 @@ from imap_tools import MailBox, AND, A
 client = dataiku.api_client()
 project = client.get_project("SARC_HQ2")
 handle = dataiku.Folder("row_wearhouse_reports")
-path = handle.get_path()
+path_war = handle.get_path()
 
 handleOld = dataiku.Folder("wearhouse_row_compning_ok_month")
 pathOld = handleOld.get_path()
 
 handleDis = dataiku.Folder("dis_row_data")
-pathDis = handleDis.get_path()
+path_dis = handleDis.get_path()
 resultsWerar = "NOT TEST IT YET!"
 
 df = "NOT SET YET!"
@@ -217,6 +217,8 @@ tt2 = "NOT SET YET!"
 disdf = "NOT SET YET!"
 distt = "NOT SET YET!"
 distt2 = "NOT SET YET!"
+
+color = 'not set yet'
 
 isPassOpenBalnce = 1
 isPassStatus = 1
@@ -229,7 +231,7 @@ total_sum_of_open_balnce_for_now = 0
 # get list of email from INBOX folder for your hq.sarc email and it's to the right folder
 #TO DO
 #-hide email password as variable in dataiku..
-def getingEmail():
+def geting_email():
     with MailBox('imap.gmail.com').login('hq.sarc.im.ca@gmail.com', 'rrpexebvznphgxsp') as mailbox:
         if mailbox.fetch(A(seen=False)):
             for msg in mailbox.fetch(A(seen=False)):
@@ -254,14 +256,14 @@ def getingEmail():
             return "لا يوجد رسائل جديدة"
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def oldCheckBuild():
+def old_check_build():
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").clear(partitions=None)
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").build()
     project.get_dataset("wearhouse_row_compning_ok_month_prepared").build()
     project.get_dataset("test_tarek_month").build()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def warCheckBuild():
+def war_check_build():
     project.get_dataset("wearhouse_row_data").clear(partitions=None)
     project.get_dataset("wearhouse_row_data").build()
     project.get_dataset("wearhouse_row_data_prepared").build()
@@ -270,7 +272,7 @@ def warCheckBuild():
     project.get_dataset("final_check").build()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def disCheckBuild():
+def dis_check_build():
     project.get_dataset("dis_row_dataset").clear(partitions=None)
     project.get_dataset("dis_row_dataset").build()
     project.get_dataset("dis_row_dataset_prepared").build()
@@ -281,18 +283,52 @@ def disCheckBuild():
     project.get_dataset("final_check_dis").build()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def oldWarCheck():
-    dataset_to_check = dataiku.Dataset("final_check")
-    df = dataset_to_check.get_dataframe()
-    #df2 = df.style.applymap(lambda v: 'color:white;background-color:darkblue;' if (df.chcek == "false") else None )
-    return df
+def color_style(val):
+    color = 'white'
+    if val == 'false':
+        color = 'red'
+    elif val == 'ok':
+        color = 'grey'
+
+    return 'border-width:2px; background-color :%s' % color
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def oldWarCheck():
+def old_war_check():
     dataset_to_check = dataiku.Dataset("final_check")
-    df = dataset_to_check.get_dataframe()
-    s2 = df.style.applymap(lambda x: "background-color: red" if (str(df.Partner)=="ICRC") else "background-color: white")
-    return s2
+    old_war_df = dataset_to_check.get_dataframe()
+
+
+    counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
+    counts_of_check_status = old_war_df['check_status'].value_counts()
+    total_sum_of_closing_sum_for_old = old_war_df['old_Closing_Balance_sum'].sum()
+    total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
+
+    #you need this for that is there no "ok" in any coulm will consding all the data as
+    #bollen and when there is ok all the data type will be string
+    if "ok" in counts_of_check_status_open_balnce:
+        is_pass_open_balance = 'false' in counts_of_check_status_open_balnce
+    else:
+        is_pass_open_balance = 0 in counts_of_check_status_open_balnce
+
+
+    old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=False).style.applymap(color, subset=['check_status_open_balnce','check_status' ]).to_excel(r'%s/results.xlsx' % (path_war), index = False)
+    results_war_excel = '%s/results.xlsx' % (path_war)
+
+    return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now, is_pass_open_balance,
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-oldWarCheck()
+old_war_check()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+def dis_check()
+    dataset_to_check_dis = dataiku.Dataset("final_check_dis")
+    dis_df = dataset_to_check_for_dis.get_dataframe()
+
+    counts_of_check_status_dis = dis_df['check_dis_and_total_out'].value_counts()
+
+    is_Pass_Dis = 0 in counts_of_check_status_dis
+
+    disdf.to_excel(r'%s/results.xlsx' % (path_dis), index = False)
+    results_dis_excel = '%s/results.xlsx' % (path_dis)
+
+    return dis_df, counts_of_check_status_dis, is_Pass_Dis
