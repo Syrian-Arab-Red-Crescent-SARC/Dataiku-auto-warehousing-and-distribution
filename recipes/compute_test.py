@@ -220,7 +220,7 @@ distt2 = "NOT SET YET!"
 
 color = 'not set yet'
 
-isPassOpenBalnce = 1
+is_pass_open_balance = 1
 isPassStatus = 1
 isPassDis = 1
 
@@ -294,14 +294,24 @@ def color_style(val):
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_war_check():
-    dataset_to_check = dataiku.Dataset("final_check")
-    old_war_df = dataset_to_check.get_dataframe()
+    #geting the need df datafram
+    war_to_check = dataiku.Dataset("final_check")
+    old_war_df = war_to_check.get_dataframe()
 
+    war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
+    empty_war_df = war_to_check_empty_value.get_dataframe()
 
+    #set the variables
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
     total_sum_of_closing_sum_for_old = old_war_df['old_Closing_Balance_sum'].sum()
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
+
+    #check that all the items total from previous month is there
+    if (total_sum_of_closing_sum_for_old == total_sum_of_open_balnce_for_now):
+        is_pass_previosu_month = False
+    else:
+        is_pass_previosu_month = True
 
     #you need this for that is there no "ok" in any coulm will consding all the data as
     #bollen and when there is ok all the data type will be string
@@ -310,25 +320,120 @@ def old_war_check():
     else:
         is_pass_open_balance = 0 in counts_of_check_status_open_balnce
 
+    #check for your empty value
+    is_pass_war_empty_value = "EMPTY" in empty_war_df[{'Branch_Code','Sub_Branch_code'}]
 
-    old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=False).style.applymap(color, subset=['check_status_open_balnce','check_status' ]).to_excel(r'%s/results.xlsx' % (path_war), index = False)
+    #write the results in excel after styling, sorting
+    old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=False).style.applymap(color_style, subset=['check_status_open_balnce','check_status']).to_excel(r'%s/results.xlsx' % (path_war), index = False)
     results_war_excel = '%s/results.xlsx' % (path_war)
 
-    return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now, is_pass_open_balance,
+    return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance, is_pass_war_empty_value
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 old_war_check()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def dis_check()
-    dataset_to_check_dis = dataiku.Dataset("final_check_dis")
-    dis_df = dataset_to_check_for_dis.get_dataframe()
+def dis_check():
+    #geting the need df datafram
+    dis_to_check = dataiku.Dataset("final_check_dis")
+    dis_df = dis_to_check.get_dataframe()
 
+    dis_to_check_empty_value = dataiku.Dataset("dis_row_dataset_prepared")
+    empty_dis_df = dis_to_check_empty_value.get_dataframe()
+
+    #set the variables
     counts_of_check_status_dis = dis_df['check_dis_and_total_out'].value_counts()
 
+    #check is wearhouse outcom match with quantity
     is_Pass_Dis = 0 in counts_of_check_status_dis
 
-    disdf.to_excel(r'%s/results.xlsx' % (path_dis), index = False)
-    results_dis_excel = '%s/results.xlsx' % (path_dis)
+    #check for your empty value
+    is_pass_dis_empty_value = "EMPTY" in empty_dis_df[{'District','SubDistrict','Community','Location','Dis_type','Total Number of Beneficiaries','Beneficiary Condition','Beneficiary condition main','GovCode','DistrictCode','SubDistrictCode','Community Pcode'}]
 
-    return dis_df, counts_of_check_status_dis, is_Pass_Dis
+    #write the results in excel after styling, sorting
+    dis_df.sort_values(by='check_dis_and_total_out',ascending=False).style.applymap(color_style, subset='check_dis_and_total_out').to_excel(r'%s/results.xlsx' % (path_dis), index = False)
+    results_war_excel = '%s/results.xlsx' % (path_dis)
+
+    return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+dis_check()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+def sedning_email():
+    msg = MIMEMultipart()
+    # setup the parameters of the message
+    password = "rrpexebvznphgxsp"
+    msg['From'] = "hq.sarc.im.ca@gmail.com"
+    msg['To'] = str(replyFor)
+    msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
+
+    body = MIMEText("""<style>.email-style{direction: rtl;}</style>
+<div class="email-style">
+<h2>نتائج الأختبار الأخير: FAILD</h2>
+
+<h3>حركة المستودع:</h3>
+<table>
+    <tr>
+        <td>مجموع الرصيد الشهر الحالي مع الشهر الماضي:</td>
+        <td>Faild</td>
+    </tr>
+    <tr>
+        <td> مطابقة الرصيد الأفتتاحي مع الشهر الماضي: </td>
+        <td>Faild</td>
+    </tr>
+    <tr>
+        <td>الرصيد الختامي للشهر نفسه: </td>
+        <td>Faild</td>
+    </tr>
+    <tr>
+        <td>وجود خلايا فارغة في حركة المستودع:</td>
+        <td>Faild</td>
+    </tr>
+</table>
+
+<h3>إستمارة التوزيع</h3>
+<table>
+    <tr>
+        <td>مطابقة الكمية مع المواد الصادرة:</td>
+        <td>Faild</td>
+    </tr>
+    <tr>
+        <td>وجود خلايا فارغة في استمارة التوزيع:</td>
+        <td>Faild</td>
+    </tr>
+</table>
+
+
+<h4>الخلايا التالية يجب أن لا تكون فارغة في حركة المستودع: </h4>
+<ul>
+    <li>xx</li>
+    <li>xx</li>
+</ul>
+
+<h4>الخلايا التالية يجب أن لا تكون فارغة في استمارة التوزيع: </h4>
+<ul>
+    <li>xx</li>
+    <li>xx</li>
+    <li>xx</li>
+    <li>xx</li>
+    <li>xx</li>
+</ul>
+</div>""", 'html', 'utf-8')
+
+    msg.attach(body)
+
+    server = smtplib.SMTP('smtp.gmail.com: 587')
+    server.starttls()
+
+    # Login Credentials for sending the mail
+    server.login(msg['From'], password)
+
+
+    # send the message via the server.
+    server.sendmail(msg['From'], msg['To'], msg.as_string())
+
+    server.quit()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+sedning_email()
