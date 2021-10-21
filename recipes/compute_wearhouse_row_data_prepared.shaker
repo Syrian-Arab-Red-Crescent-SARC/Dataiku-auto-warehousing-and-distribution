@@ -88,6 +88,21 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
+      "type": "FillEmptyWithValue",
+      "params": {
+        "columns": [
+          "Branch Code",
+          "Sub Branch code"
+        ],
+        "appliesTo": "COLUMNS",
+        "value": "MISSING"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ColumnRenamer",
       "params": {
         "renamings": [
@@ -324,7 +339,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "StringTransformer",
