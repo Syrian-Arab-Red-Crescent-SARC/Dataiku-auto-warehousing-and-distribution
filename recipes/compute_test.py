@@ -356,6 +356,8 @@ def dis_check():
 
     return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value
 
+####YOU SHOULD ADD DIS AND WAR TOTLTO CHECK BEFORE YOU MAKE ANYTHIGN> 
+
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 dis_check()
 
