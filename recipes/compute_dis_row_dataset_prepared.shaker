@@ -81,7 +81,20 @@
       "params": {
         "columns": [
           "Other Items",
-          "CTN",
+          "CTN"
+        ],
+        "appliesTo": "COLUMNS",
+        "value": "0"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FillEmptyWithValue",
+      "params": {
+        "columns": [
           "District",
           "SubDistrict",
           "Community",
@@ -96,7 +109,7 @@
           "Community Pcode"
         ],
         "appliesTo": "COLUMNS",
-        "value": "0"
+        "value": "EMPTY"
       },
       "alwaysShowComment": false
     },
@@ -158,7 +171,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "StringTransformer",
