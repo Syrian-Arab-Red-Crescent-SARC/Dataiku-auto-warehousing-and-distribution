@@ -95,7 +95,7 @@
           "Sub Branch code"
         ],
         "appliesTo": "COLUMNS",
-        "value": "MISSING"
+        "value": "EMPTY"
       },
       "alwaysShowComment": false
     },
