@@ -59,11 +59,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 5,
+    "versionNumber": 6,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1614068747234
+    "lastModifiedOn": 1634807468910
   },
   "creationTag": {
     "versionNumber": 0,
@@ -142,10 +142,6 @@
         "type": "string"
       },
       {
-        "name": "Receiving_Date_iso",
-        "type": "string"
-      },
-      {
         "name": "Goods_Received_Note",
         "type": "string",
         "meaning": "Text"
@@ -165,10 +161,6 @@
       },
       {
         "name": "Sending_Date",
-        "type": "string"
-      },
-      {
-        "name": "Sending Date_iso",
         "type": "string"
       },
       {
@@ -229,6 +221,10 @@
       },
       {
         "name": "Unique_Items_Code",
+        "type": "string"
+      },
+      {
+        "name": "Receiving_Date_iso",
         "type": "string"
       }
     ],
