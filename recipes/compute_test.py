@@ -298,6 +298,9 @@ def old_war_check():
     war_to_check = dataiku.Dataset("final_check")
     old_war_df = war_to_check.get_dataframe()
 
+    war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
+    war_total_out = war_to_check_total_out.get_dataframe()
+
     war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
     empty_war_df = war_to_check_empty_value.get_dataframe()
 
@@ -306,7 +309,7 @@ def old_war_check():
     counts_of_check_status = old_war_df['check_status'].value_counts()
     total_sum_of_closing_sum_for_old = old_war_df['old_Closing_Balance_sum'].sum()
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
-
+    total_sum_of_out_to_check_from_war = war_total_out['Total_out_sum'].sum()
     #check that all the items total from previous month is there
     if (total_sum_of_closing_sum_for_old == total_sum_of_open_balnce_for_now):
         is_pass_previosu_month = False
@@ -327,7 +330,7 @@ def old_war_check():
     old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=False).style.applymap(color_style, subset=['check_status_open_balnce','check_status']).to_excel(r'%s/results.xlsx' % (path_war), index = False)
     results_war_excel = '%s/results.xlsx' % (path_war)
 
-    return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance, is_pass_war_empty_value
+    return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance, is_pass_war_empty_value, total_sum_of_out_to_check_from_war
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 old_war_check()
@@ -340,6 +343,9 @@ def dis_check():
 
     dis_to_check_empty_value = dataiku.Dataset("dis_row_dataset_prepared")
     empty_dis_df = dis_to_check_empty_value.get_dataframe()
+
+    #set the total out and check total in
+    total_sum_of_out_to_check_from_dis = dis_df['Quantity_sum'].sum()
 
     #set the variables
     counts_of_check_status_dis = dis_df['check_dis_and_total_out'].value_counts()
@@ -354,9 +360,7 @@ def dis_check():
     dis_df.sort_values(by='check_dis_and_total_out',ascending=False).style.applymap(color_style, subset='check_dis_and_total_out').to_excel(r'%s/results.xlsx' % (path_dis), index = False)
     results_war_excel = '%s/results.xlsx' % (path_dis)
 
-    return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value
-
-####YOU SHOULD ADD DIS AND WAR TOTLTO CHECK BEFORE YOU MAKE ANYTHIGN> 
+    return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 dis_check()
@@ -371,57 +375,57 @@ def sedning_email():
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
 
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
-<div class="email-style">
-<h2>نتائج الأختبار الأخير: FAILD</h2>
+                    <div class="email-style">
+                    <h2>نتائج الأختبار الأخير: FAILD</h2>
 
-<h3>حركة المستودع:</h3>
-<table>
-    <tr>
-        <td>مجموع الرصيد الشهر الحالي مع الشهر الماضي:</td>
-        <td>Faild</td>
-    </tr>
-    <tr>
-        <td> مطابقة الرصيد الأفتتاحي مع الشهر الماضي: </td>
-        <td>Faild</td>
-    </tr>
-    <tr>
-        <td>الرصيد الختامي للشهر نفسه: </td>
-        <td>Faild</td>
-    </tr>
-    <tr>
-        <td>وجود خلايا فارغة في حركة المستودع:</td>
-        <td>Faild</td>
-    </tr>
-</table>
+                    <h3>حركة المستودع:</h3>
+                    <table>
+                        <tr>
+                            <td>مجموع الرصيد الشهر الحالي مع الشهر الماضي:</td>
+                            <td>Faild</td>
+                        </tr>
+                        <tr>
+                            <td> مطابقة الرصيد الأفتتاحي مع الشهر الماضي: </td>
+                            <td>Faild</td>
+                        </tr>
+                        <tr>
+                            <td>الرصيد الختامي للشهر نفسه: </td>
+                            <td>Faild</td>
+                        </tr>
+                        <tr>
+                            <td>وجود خلايا فارغة في حركة المستودع:</td>
+                            <td>Faild</td>
+                        </tr>
+                    </table>
 
-<h3>إستمارة التوزيع</h3>
-<table>
-    <tr>
-        <td>مطابقة الكمية مع المواد الصادرة:</td>
-        <td>Faild</td>
-    </tr>
-    <tr>
-        <td>وجود خلايا فارغة في استمارة التوزيع:</td>
-        <td>Faild</td>
-    </tr>
-</table>
+                    <h3>إستمارة التوزيع</h3>
+                    <table>
+                        <tr>
+                            <td>مطابقة الكمية مع المواد الصادرة:</td>
+                            <td>Faild</td>
+                        </tr>
+                        <tr>
+                            <td>وجود خلايا فارغة في استمارة التوزيع:</td>
+                            <td>Faild</td>
+                        </tr>
+                    </table>
 
 
-<h4>الخلايا التالية يجب أن لا تكون فارغة في حركة المستودع: </h4>
-<ul>
-    <li>xx</li>
-    <li>xx</li>
-</ul>
+                    <h4>الخلايا التالية يجب أن لا تكون فارغة في حركة المستودع: </h4>
+                    <ul>
+                        <li>xx</li>
+                        <li>xx</li>
+                    </ul>
 
-<h4>الخلايا التالية يجب أن لا تكون فارغة في استمارة التوزيع: </h4>
-<ul>
-    <li>xx</li>
-    <li>xx</li>
-    <li>xx</li>
-    <li>xx</li>
-    <li>xx</li>
-</ul>
-</div>""", 'html', 'utf-8')
+                    <h4>الخلايا التالية يجب أن لا تكون فارغة في استمارة التوزيع: </h4>
+                    <ul>
+                        <li>xx</li>
+                        <li>xx</li>
+                        <li>xx</li>
+                        <li>xx</li>
+                        <li>xx</li>
+                    </ul>
+                    </div>""", 'html', 'utf-8')
 
     msg.attach(body)
 
