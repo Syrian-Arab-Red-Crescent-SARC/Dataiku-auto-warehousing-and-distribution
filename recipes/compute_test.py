@@ -208,7 +208,7 @@ handleOld = dataiku.Folder("wearhouse_row_compning_ok_month")
 pathOld = handleOld.get_path()
 
 handleDis = dataiku.Folder("dis_row_data")
-path_dis = handleDis.get_path()
+pathDis = handleDis.get_path()
 resultsWerar = "NOT TEST IT YET!"
 
 df = "NOT SET YET!"
@@ -232,6 +232,9 @@ total_sum_of_open_balnce_for_now = 0
 #TO DO
 #-hide email password as variable in dataiku..
 def geting_email():
+    some_erro_inside_att = False
+    no_att_inside_meail = False
+
     with MailBox('imap.gmail.com').login('hq.sarc.im.ca@gmail.com', 'rrpexebvznphgxsp') as mailbox:
         if mailbox.fetch(A(seen=False)):
             for msg in mailbox.fetch(A(seen=False)):
@@ -243,17 +246,22 @@ def geting_email():
                             with open('{}/{}'.format(pathOld, att.filename.replace(att.filename, "old_data.xlsx")), 'wb') as old:
                                 old.write(bytearray(att.payload))
                         elif "war" in att.filename.lower():
-                            with open('{}/{}'.format(path, att.filename.replace(att.filename, "warehouse15.xlsx")), 'wb') as war:
+                            with open('{}/{}'.format(path_war, att.filename.replace(att.filename, "warehouse15.xlsx")), 'wb') as war:
                                 war.write(bytearray(att.payload))
                         elif  "dis" in att.filename.lower() :
                             with open('{}/{}'.format(pathDis, att.filename.replace(att.filename, "dis.xlsx")), 'wb') as dis:
                                 dis.write(bytearray(att.payload))
+                            return replyFor, subject
                         else:
-                            return "هنالك خطأ في الملفات المرفقة"
-                return "لا يوجد مرفقات في الرسالة الإلكترونية الحالية"
+                            some_erro_inside_att = True
+                            return some_erro_inside_att, replyFor
+                else:
+                    no_att_inside_meail = True
+                    return no_att_inside_meail, replyFor
 
-        else:
-            return "لا يوجد رسائل جديدة"
+  #  no_new_message = 3
+   # return no_new_message
+    return 0
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_check_build():
@@ -360,7 +368,7 @@ def dis_check():
     return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def sedning_email(subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
+def sedning_emailXX(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
                   total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,
                   is_pass_previosu_month, is_pass_open_balance,
                   is_pass_war_empty_value, total_sum_of_out_to_check_from_war):
@@ -438,6 +446,35 @@ def sedning_email(subject,results,counts_of_check_status_open_balnce, counts_of_
     server.quit()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+def sedning_email(replyFor, subject):
+    msg = MIMEMultipart()
+    # setup the parameters of the message
+    password = "rrpexebvznphgxsp"
+    msg['From'] = "hq.sarc.im.ca@gmail.com"
+    msg['To'] = str(replyFor)
+    msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
+    body = MIMEText("""<style>.email-style{direction: rtl;}</style>
+                    <div class="email-style">
+                    <h2>نتائج الأختبار الأخير: rr</h2>
+
+
+                    </div>""", 'html', 'utf-8')
+
+    msg.attach(body)
+
+    server = smtplib.SMTP('smtp.gmail.com: 587')
+    server.starttls()
+
+    # Login Credentials for sending the mail
+    server.login(msg['From'], password)
+
+
+    # send the message via the server.
+    server.sendmail(msg['From'], msg['To'], msg.as_string())
+
+    server.quit()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 geting_email()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
@@ -456,7 +493,22 @@ old_war_check()
 dis_check()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-sedning_email()
+sedning_email(geting_email(), old_war_check(), dis_check())
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def controller ()
+def controller ():
+    replyFor = geting_email()
+    subject = geting_email()
+    if geting_email()== 0:
+        print ("no new message")
+    elif geting_email():
+        print("there some eror")
+    else:
+        print("yes there new message")
+        sedning_email(replyFor, subject )
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+controller()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+geting_email()
