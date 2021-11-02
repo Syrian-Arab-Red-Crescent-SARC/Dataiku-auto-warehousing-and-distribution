@@ -333,9 +333,6 @@ def old_war_check():
     return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance, is_pass_war_empty_value, total_sum_of_out_to_check_from_war
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-old_war_check()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def dis_check():
     #geting the need df datafram
     dis_to_check = dataiku.Dataset("final_check_dis")
@@ -363,9 +360,6 @@ def dis_check():
     return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-dis_check()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def sedning_email(subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
                   total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,
                   is_pass_previosu_month, is_pass_open_balance,
@@ -376,10 +370,6 @@ def sedning_email(subject,results,counts_of_check_status_open_balnce, counts_of_
     msg['From'] = "hq.sarc.im.ca@gmail.com"
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
-counts_of_check_status_open_balnce, counts_of_check_status,
-total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,
-is_pass_previosu_month, is_pass_open_balance,
-is_pass_war_empty_value, total_sum_of_out_to_check_from_war
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
                     <div class="email-style">
                     <h2>نتائج الأختبار الأخير: {results}</h2>
@@ -446,6 +436,24 @@ is_pass_war_empty_value, total_sum_of_out_to_check_from_war
     server.sendmail(msg['From'], msg['To'], msg.as_string())
 
     server.quit()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+geting_email()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+old_check_build()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+war_check_build()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+dis_check_build()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+old_war_check()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+dis_check()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 sedning_email()
