@@ -366,35 +366,41 @@ def dis_check():
 dis_check()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def sedning_email():
+def sedning_email(subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
+                  total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,
+                  is_pass_previosu_month, is_pass_open_balance,
+                  is_pass_war_empty_value, total_sum_of_out_to_check_from_war):
     msg = MIMEMultipart()
     # setup the parameters of the message
     password = "rrpexebvznphgxsp"
     msg['From'] = "hq.sarc.im.ca@gmail.com"
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
-
+counts_of_check_status_open_balnce, counts_of_check_status,
+total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,
+is_pass_previosu_month, is_pass_open_balance,
+is_pass_war_empty_value, total_sum_of_out_to_check_from_war
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
                     <div class="email-style">
-                    <h2>نتائج الأختبار الأخير: FAILD</h2>
+                    <h2>نتائج الأختبار الأخير: {results}</h2>
 
                     <h3>حركة المستودع:</h3>
                     <table>
                         <tr>
                             <td>مجموع الرصيد الشهر الحالي مع الشهر الماضي:</td>
-                            <td>Faild</td>
+                            <td>{total_sum_of_closing_sum_for_old} - {total_sum_of_open_balnce_for_now}</td>
                         </tr>
                         <tr>
                             <td> مطابقة الرصيد الأفتتاحي مع الشهر الماضي: </td>
-                            <td>Faild</td>
+                            <td>{!is_pass_previosu_month}</td>
                         </tr>
                         <tr>
                             <td>الرصيد الختامي للشهر نفسه: </td>
-                            <td>Faild</td>
+                            <td>{!is_pass_open_balance}</td>
                         </tr>
                         <tr>
                             <td>وجود خلايا فارغة في حركة المستودع:</td>
-                            <td>Faild</td>
+                            <td>{is_pass_war_empty_value}</td>
                         </tr>
                     </table>
 
@@ -411,13 +417,13 @@ def sedning_email():
                     </table>
 
 
-                    <h4>الخلايا التالية يجب أن لا تكون فارغة في حركة المستودع: </h4>
+                    <h4>الخلايا التالية يجب أن لا تكون فارغة في حركة المستودع، حيث يقوم البرنامج بفحص العواميد التالية: </h4>
                     <ul>
                         <li>xx</li>
                         <li>xx</li>
                     </ul>
 
-                    <h4>الخلايا التالية يجب أن لا تكون فارغة في استمارة التوزيع: </h4>
+                    <h4>الخلايا التالية يجب أن لا تكون فارغة في استمارة التوزيع، حيث يقوم البرنامج بفحص العواميد التالية: </h4>
                     <ul>
                         <li>xx</li>
                         <li>xx</li>
@@ -443,3 +449,6 @@ def sedning_email():
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 sedning_email()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+def controller ()
