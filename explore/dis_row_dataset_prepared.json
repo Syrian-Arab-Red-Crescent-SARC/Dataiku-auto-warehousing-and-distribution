@@ -116,6 +116,41 @@
             "empty": true
           }
         }
+      },
+      {
+        "column": "Beneficiary Condition",
+        "type": "columnFilter",
+        "currentMode": "FACET",
+        "active": true,
+        "facet": {
+          "type": "facet",
+          "column": "Beneficiary Condition",
+          "columnType": "ALPHANUM",
+          "currentMode": "ALPHANUM",
+          "sort": "count",
+          "selectedValues": {
+            "EMPTY": true
+          }
+        },
+        "alphanumFilter": {
+          "type": "alphanum",
+          "column": "Beneficiary Condition",
+          "values": [],
+          "params": {
+            "mode": "full_string",
+            "normalization": "exact"
+          }
+        },
+        "validityFilter": {
+          "type": "validity",
+          "column": "Beneficiary Condition",
+          "params": {
+            "type": "Text",
+            "ok": true,
+            "nok": true,
+            "empty": true
+          }
+        }
       }
     ],
     "previewMode": "ALL_ROWS"
