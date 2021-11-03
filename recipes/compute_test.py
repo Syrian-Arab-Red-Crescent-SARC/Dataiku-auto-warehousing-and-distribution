@@ -232,9 +232,7 @@ total_sum_of_open_balnce_for_now = 0
 #TO DO
 #-hide email password as variable in dataiku..
 def geting_email():
-    some_erro_inside_att = False
-    no_att_inside_meail = False
-
+    status = 0
     with MailBox('imap.gmail.com').login('hq.sarc.im.ca@gmail.com', 'rrpexebvznphgxsp') as mailbox:
         if mailbox.fetch(A(seen=False)):
             for msg in mailbox.fetch(A(seen=False)):
@@ -253,15 +251,22 @@ def geting_email():
                                 dis.write(bytearray(att.payload))
                             return replyFor, subject
                         else:
-                            some_erro_inside_att = True
-                            return some_erro_inside_att, replyFor
+                            status = 1
+                            return status, replyFor, subject
                 else:
-                    no_att_inside_meail = True
-                    return no_att_inside_meail, replyFor
+                    status = 2
+                    return status, replyFor, subject
 
   #  no_new_message = 3
    # return no_new_message
-    return 0
+    status = 3
+    replyFor = None
+    subject = None
+
+    return status, replyFor, subject
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+geting_email()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_check_build():
@@ -446,7 +451,7 @@ def sedning_emailXX(replyFor, subject,results,counts_of_check_status_open_balnce
     server.quit()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def sedning_email(replyFor, subject):
+def sedning_email_wrong(replyFor, subject):
     msg = MIMEMultipart()
     # setup the parameters of the message
     password = "rrpexebvznphgxsp"
@@ -455,8 +460,7 @@ def sedning_email(replyFor, subject):
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
                     <div class="email-style">
-                    <h2>نتائج الأختبار الأخير: rr</h2>
-
+                    <h4>هنالك خطأ ما في الملفات المرفقة، يرجى مراجعة دليل الإستخدام المرسل سابقاً.</h4>
 
                     </div>""", 'html', 'utf-8')
 
@@ -497,13 +501,13 @@ sedning_email(geting_email(), old_war_check(), dis_check())
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def controller ():
-    replyFor = geting_email()
-    subject = geting_email()
-    if geting_email()== 0:
-        print ("no new message")
-    elif geting_email():
-        print("there some eror")
-    else:
+    status, replyFor,subject = geting_email()
+    if status == 4 or status == 3:
+        #nothing to do
+        pass
+    elif status == 2:
+        sedning_email_wrong(replyFor, subject)
+    elif status == 1:
         print("yes there new message")
         sedning_email(replyFor, subject )
 
