@@ -208,7 +208,7 @@ handleOld = dataiku.Folder("wearhouse_row_compning_ok_month")
 pathOld = handleOld.get_path()
 
 handleDis = dataiku.Folder("dis_row_data")
-pathDis = handleDis.get_path()
+path_dis = handleDis.get_path()
 resultsWerar = "NOT TEST IT YET!"
 
 df = "NOT SET YET!"
@@ -243,23 +243,28 @@ def geting_email():
                         if "old-hq" in att.filename.lower():
                             with open('{}/{}'.format(pathOld, att.filename.replace(att.filename, "old_data.xlsx")), 'wb') as old:
                                 old.write(bytearray(att.payload))
+                                status = 1
+                                return status, replyFor, subject
                         elif "war" in att.filename.lower():
                             with open('{}/{}'.format(path_war, att.filename.replace(att.filename, "warehouse15.xlsx")), 'wb') as war:
                                 war.write(bytearray(att.payload))
+                                status = 1
+                                #return status, replyFor, subject
                         elif  "dis" in att.filename.lower() :
-                            with open('{}/{}'.format(pathDis, att.filename.replace(att.filename, "dis.xlsx")), 'wb') as dis:
+                            with open('{}/{}'.format(path_dis, att.filename.replace(att.filename, "dis.xlsx")), 'wb') as dis:
                                 dis.write(bytearray(att.payload))
-                            return replyFor, subject
+                                status = 1
+                            return status, replyFor, subject
                         else:
-                            status = 1
+                            status = 2
                             return status, replyFor, subject
                 else:
-                    status = 2
+                    status = 3
                     return status, replyFor, subject
 
   #  no_new_message = 3
    # return no_new_message
-    status = 3
+    status = 4
     replyFor = None
     subject = None
 
@@ -337,13 +342,13 @@ def old_war_check():
         is_pass_open_balance = 0 in counts_of_check_status_open_balnce
 
     #check for your empty value
-    is_pass_war_empty_value = "EMPTY" in empty_war_df[{'Branch_Code','Sub_Branch_code'}]
+    is_pass_war_empty_value = "EMPTY" in empty_war_df[{'Branch_Code','Sub_Branch_code'}].values
 
     #write the results in excel after styling, sorting
     old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=False).style.applymap(color_style, subset=['check_status_open_balnce','check_status']).to_excel(r'%s/results.xlsx' % (path_war), index = False)
     results_war_excel = '%s/results.xlsx' % (path_war)
 
-    return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance, is_pass_war_empty_value, total_sum_of_out_to_check_from_war
+    return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance, is_pass_war_empty_value, total_sum_of_out_to_check_from_war, results_war_excel
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def dis_check():
@@ -364,19 +369,23 @@ def dis_check():
     is_Pass_Dis = 0 in counts_of_check_status_dis
 
     #check for your empty value
-    is_pass_dis_empty_value = "EMPTY" in empty_dis_df[{'District','SubDistrict','Community','Location','Dis_type','Total Number of Beneficiaries','Beneficiary Condition','Beneficiary condition main','GovCode','DistrictCode','SubDistrictCode','Community Pcode'}]
-
+    is_pass_dis_empty_value = "EMPTY" in empty_dis_df[{'District','SubDistrict','Community','Location','Dis_type','Total Number of Beneficiaries','Beneficiary Condition','Beneficiary condition main','GovCode','DistrictCode','SubDistrictCode','Community Pcode'}].values
     #write the results in excel after styling, sorting
     dis_df.sort_values(by='check_dis_and_total_out',ascending=False).style.applymap(color_style, subset='check_dis_and_total_out').to_excel(r'%s/results.xlsx' % (path_dis), index = False)
-    results_war_excel = '%s/results.xlsx' % (path_dis)
+    results_dis_excel = '%s/results.xlsx' % (path_dis)
 
-    return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis
+    return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis,results_dis_excel
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def sedning_emailXX(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
+dis_check()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
                   total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,
                   is_pass_previosu_month, is_pass_open_balance,
-                  is_pass_war_empty_value, total_sum_of_out_to_check_from_war):
+                  is_pass_war_empty_value, total_sum_of_out_to_check_from_war, counts_of_check_status_dis,
+                  is_Pass_Dis, is_pass_dis_empty_value,
+                  total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel):
     msg = MIMEMultipart()
     # setup the parameters of the message
     password = "rrpexebvznphgxsp"
@@ -385,58 +394,98 @@ def sedning_emailXX(replyFor, subject,results,counts_of_check_status_open_balnce
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
                     <div class="email-style">
-                    <h2>نتائج الأختبار الأخير: {results}</h2>
+                    <h2>نتائج الأختبار الأخير: """ + str(results) + """ </h2>
 
                     <h3>حركة المستودع:</h3>
                     <table>
                         <tr>
                             <td>مجموع الرصيد الشهر الحالي مع الشهر الماضي:</td>
-                            <td>{total_sum_of_closing_sum_for_old} - {total_sum_of_open_balnce_for_now}</td>
+                            <td>""" + str(total_sum_of_closing_sum_for_old)  + """ / """ + str(total_sum_of_open_balnce_for_now) + """</td>
                         </tr>
                         <tr>
                             <td> مطابقة الرصيد الأفتتاحي مع الشهر الماضي: </td>
-                            <td>{!is_pass_previosu_month}</td>
+                            <td>""" + str(not is_pass_previosu_month) + """</td>
+                        </tr>
+                        <tr>
+                            <td> التفاصيل :</td>
+                            <td>""" + str(counts_of_check_status_open_balnce) + """</td>
                         </tr>
                         <tr>
                             <td>الرصيد الختامي للشهر نفسه: </td>
-                            <td>{!is_pass_open_balance}</td>
+                            <td>""" + str(not is_pass_open_balance) + """</td>
+                        </tr>
+                        <tr>
+                            <td> التفاصيل: </td>
+                            <td>""" + str(counts_of_check_status) + """</td>
                         </tr>
                         <tr>
                             <td>وجود خلايا فارغة في حركة المستودع:</td>
-                            <td>{is_pass_war_empty_value}</td>
+                            <td>""" + str(is_pass_war_empty_value) + """</td>
                         </tr>
                     </table>
 
                     <h3>إستمارة التوزيع</h3>
                     <table>
                         <tr>
+                            <td>مجموع الرصيد المواد الصادرة مع المواد الموزعة:</td>
+                            <td>""" + str(total_sum_of_out_to_check_from_dis) + """ / """ + str(total_sum_of_out_to_check_from_war) + """ </td>
+                        </tr>
+                        <tr>
                             <td>مطابقة الكمية مع المواد الصادرة:</td>
-                            <td>Faild</td>
+                            <td>""" + str(not is_Pass_Dis) + """</td>
+                        </tr>
+                        <tr>
+                            <td> التفاصيل :</td>
+                            <td>""" + str(counts_of_check_status_dis) + """</td>
                         </tr>
                         <tr>
                             <td>وجود خلايا فارغة في استمارة التوزيع:</td>
-                            <td>Faild</td>
+                            <td>""" + str(is_pass_dis_empty_value) + """</td>
                         </tr>
                     </table>
 
 
                     <h4>الخلايا التالية يجب أن لا تكون فارغة في حركة المستودع، حيث يقوم البرنامج بفحص العواميد التالية: </h4>
                     <ul>
-                        <li>xx</li>
-                        <li>xx</li>
+                        <li>Branch Code</li>
+                        <li>Sub Branch code</li>
                     </ul>
 
                     <h4>الخلايا التالية يجب أن لا تكون فارغة في استمارة التوزيع، حيث يقوم البرنامج بفحص العواميد التالية: </h4>
                     <ul>
-                        <li>xx</li>
-                        <li>xx</li>
-                        <li>xx</li>
-                        <li>xx</li>
-                        <li>xx</li>
+                        <li>District</li>
+                        <li>SubDistrict</li>
+                        <li>Community</li>
+                        <li>Location</li>
+                        <li>Total Number of Beneficiaries</li>
+                        <li>Beneficiary Condition</li>
+                        <li>Beneficiary condition main</li>
+                        <li>GovCode</li>
+                        <li>DistrictCode</li>
+                        <li>SubDistrictCode</li>
+                        <li>Community Pcode</li>
+                        <li>Dis_type</li>
                     </ul>
                     </div>""", 'html', 'utf-8')
 
     msg.attach(body)
+    # attach image to message body
+    fp = open(results_war_excel, 'rb')
+    part = MIMEBase('application','vnd.ms-excel')
+    part.set_payload(fp.read())
+    fp.close()
+    encoders.encode_base64(part)
+    part.add_header('Content-Disposition', 'attachment', filename='results_w.xlsx')
+
+    fp2 = open(results_dis_excel, 'rb')
+    part2 = MIMEBase('application','vnd.ms-excel')
+    part2.set_payload(fp2.read())
+    fp2.close()
+    encoders.encode_base64(part2)
+    part2.add_header('Content-Disposition', 'attachment', filename='results_d.xlsx')
+
+    msg.attach(part)
+    msg.attach(part2)
 
     server = smtplib.SMTP('smtp.gmail.com: 587')
     server.starttls()
@@ -502,14 +551,27 @@ sedning_email(geting_email(), old_war_check(), dis_check())
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def controller ():
     status, replyFor,subject = geting_email()
-    if status == 4 or status == 3:
+    if (status == 4):
         #nothing to do
         pass
-    elif status == 2:
+    elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
+        #old_check_build()
+        war_check_build()
+        dis_check_build()
+        old_war_check()
+        dis_check()
+        counts_of_check_status_open_balnce, counts_of_check_status,total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance,is_pass_war_empty_value, total_sum_of_out_to_check_from_war, results_war_excel = old_war_check()
+        counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis, results_dis_excel = dis_check()
+
+        if (total_sum_of_closing_sum_for_old == total_sum_of_open_balnce_for_now) and (total_sum_of_out_to_check_from_war == total_sum_of_out_to_check_from_dis) and (not is_pass_previosu_month) and (not is_pass_open_balance) and (not is_pass_war_empty_value) and (not is_Pass_Dis) and (not is_pass_dis_empty_value ):
+            results = "نجاح التحقق"
+            #CALL THE FUNCTINO TO SAVE TO DATAIKU
+        else:
+            results = "فشل التحقق"
         print("yes there new message")
-        sedning_email(replyFor, subject )
+        sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance,is_pass_war_empty_value, total_sum_of_out_to_check_from_war,counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 controller()
