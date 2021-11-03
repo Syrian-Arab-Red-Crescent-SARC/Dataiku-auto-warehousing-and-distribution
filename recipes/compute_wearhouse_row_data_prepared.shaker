@@ -75,27 +75,10 @@
           "Damage",
           "Inventory",
           "Closing Balance",
-          "Return",
-          "Branch Code",
-          "Sub Branch code"
+          "Return"
         ],
         "appliesTo": "COLUMNS",
         "value": "0"
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
-      "type": "FillEmptyWithValue",
-      "params": {
-        "columns": [
-          "Branch Code",
-          "Sub Branch code"
-        ],
-        "appliesTo": "COLUMNS",
-        "value": "EMPTY"
       },
       "alwaysShowComment": false
     },
@@ -175,6 +158,21 @@
             "to": "Unique_Items_Code"
           }
         ]
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FillEmptyWithValue",
+      "params": {
+        "columns": [
+          "Branch_Code",
+          "Sub_Branch_code"
+        ],
+        "appliesTo": "COLUMNS",
+        "value": "EMPTY"
       },
       "alwaysShowComment": false
     },
