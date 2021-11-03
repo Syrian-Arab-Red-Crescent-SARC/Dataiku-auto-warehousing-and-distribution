@@ -60,11 +60,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 15,
+    "versionNumber": 16,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1634635191252
+    "lastModifiedOn": 1635951676643
   },
   "creationTag": {
     "versionNumber": 0,
@@ -210,11 +210,11 @@
       },
       {
         "name": "Branch_Code",
-        "type": "bigint"
+        "type": "string"
       },
       {
         "name": "Sub_Branch_code",
-        "type": "bigint"
+        "type": "string"
       },
       {
         "name": "123",
