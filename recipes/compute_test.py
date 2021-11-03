@@ -243,13 +243,12 @@ def geting_email():
                         if "old-hq" in att.filename.lower():
                             with open('{}/{}'.format(pathOld, att.filename.replace(att.filename, "old_data.xlsx")), 'wb') as old:
                                 old.write(bytearray(att.payload))
-                                status = 1
-                                return status, replyFor, subject
+                                status = 5
+                            return status, replyFor, subject
                         elif "war" in att.filename.lower():
                             with open('{}/{}'.format(path_war, att.filename.replace(att.filename, "warehouse15.xlsx")), 'wb') as war:
                                 war.write(bytearray(att.payload))
                                 status = 1
-                                #return status, replyFor, subject
                         elif  "dis" in att.filename.lower() :
                             with open('{}/{}'.format(path_dis, att.filename.replace(att.filename, "dis.xlsx")), 'wb') as dis:
                                 dis.write(bytearray(att.payload))
@@ -525,11 +524,43 @@ def sedning_email_wrong(replyFor, subject):
     server.quit()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+def sedning_email_for_admin(replyFor, subject):
+    msg = MIMEMultipart()
+    # setup the parameters of the message
+    password = "rrpexebvznphgxsp"
+    msg['From'] = "hq.sarc.im.ca@gmail.com"
+    msg['To'] = str(replyFor)
+    msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
+    body = MIMEText("""<style>.email-style{direction: rtl;}</style>
+                    <div class="email-style">
+                    <h4>تم تسجيل ملف OLD ضمن البرنامج بنجاح.</h4>
+                    </br>
+                    <h4>يرجى ملاحظة انه لا يتم تدقيق او معالجة أي شي ضمن الملف المضاف، لذلك يرجى التأكد منه جيداً قبل رفعه. .</h4>
+
+                    </div>""", 'html', 'utf-8')
+
+    msg.attach(body)
+
+    server = smtplib.SMTP('smtp.gmail.com: 587')
+    server.starttls()
+
+    # Login Credentials for sending the mail
+    server.login(msg['From'], password)
+
+
+    # send the message via the server.
+    server.sendmail(msg['From'], msg['To'], msg.as_string())
+
+    server.quit()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def controller ():
     status, replyFor,subject = geting_email()
     if (status == 4):
         #nothing to do
         pass
+    elif (status == 5):
+        sedning_email_for_admin(replyFor, subject)
     elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
