@@ -271,9 +271,6 @@ def geting_email():
     return status, replyFor, subject
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-geting_email()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_check_build():
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").clear(partitions=None)
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").build()
@@ -309,6 +306,9 @@ def color_style(val):
         color = 'grey'
 
     return 'border-width:2px; background-color :%s' % color
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+old_war_check()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_war_check():
@@ -375,9 +375,6 @@ def dis_check():
     results_dis_excel = '%s/results.xlsx' % (path_dis)
 
     return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis,results_dis_excel
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-dis_check()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
@@ -526,27 +523,6 @@ def sedning_email_wrong(replyFor, subject):
     server.sendmail(msg['From'], msg['To'], msg.as_string())
 
     server.quit()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-geting_email()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-old_check_build()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-war_check_build()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-dis_check_build()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-old_war_check()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-dis_check()
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-sedning_email(geting_email(), old_war_check(), dis_check())
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def controller ():
