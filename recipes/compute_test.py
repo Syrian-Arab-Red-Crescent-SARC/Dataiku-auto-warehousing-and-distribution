@@ -194,7 +194,7 @@ def dis_check():
     #check for your empty value
     is_pass_dis_empty_value = "EMPTY" in empty_dis_df[{'District','SubDistrict','Community','Location','Dis_type','Total Number of Beneficiaries','Beneficiary Condition','Beneficiary condition main','GovCode','DistrictCode','SubDistrictCode','Community Pcode'}].values
     #write the results in excel after styling, sorting
-    dis_df.sort_values(by='check_dis_and_total_out',ascending=False).style.applymap(color_style, subset='check_dis_and_total_out').to_excel(r'%s/results.xlsx' % (path_dis), index = False)
+    dis_df.sort_values(by='check_dis_and_total_out',ascending=True).style.applymap(color_style, subset='check_dis_and_total_out').to_excel(r'%s/results.xlsx' % (path_dis), index = False)
     results_dis_excel = '%s/results.xlsx' % (path_dis)
 
     return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis,results_dis_excel
