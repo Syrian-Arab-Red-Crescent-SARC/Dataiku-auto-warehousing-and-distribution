@@ -41,6 +41,10 @@
         {
           "ref": "final_check_dis",
           "deps": []
+        },
+        {
+          "ref": "wearhouse_row_data_for_check_wiht_dis",
+          "deps": []
         }
       ]
     }
@@ -56,11 +60,11 @@
     }
   },
   "versionTag": {
-    "versionNumber": 345,
+    "versionNumber": 346,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1636013595566
+    "lastModifiedOn": 1636013940381
   },
   "creationTag": {
     "versionNumber": 0,
