@@ -186,7 +186,7 @@ def dis_check():
     #set the variables
     counts_of_check_status_dis = dis_df['check_dis_and_total_out'].value_counts()
 
-    #check is wearhouse outcom match with quantity
+    #check dis and waerhouse at true and flase
     is_Pass_Dis = 0 in counts_of_check_status_dis
 
     #check for your empty value
@@ -208,7 +208,7 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
                   is_pass_previosu_month, is_pass_open_balance,
                   is_pass_war_empty_value, total_sum_of_out_to_check_from_war, counts_of_check_status_dis,
                   is_Pass_Dis, is_pass_dis_empty_value,
-                  total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel):
+                  total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel,is_Pass_Dis_with_war_as_total):
     msg = MIMEMultipart()
     # setup the parameters of the message
     password = "rdcxayhbnfdsgsky"
@@ -254,8 +254,12 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
                             <td>""" + str(total_sum_of_out_to_check_from_dis) + """ / """ + str(total_sum_of_out_to_check_from_war) + """ </td>
                         </tr>
                         <tr>
-                            <td>مطابقة الكمية مع المواد الصادرة:</td>
-                            <td>""" + str(not is_Pass_Dis) + """</td>
+                            <td>مطابقة الكمية مع المواد الصادرة على مستوى المجموع:</td>
+                            <td>""" + str(is_Pass_Dis_with_war_as_total) + """</td>
+                        </tr>
+                        <tr>
+                            <td>مطابقة الكمية مع المواد الصادرة على مستوى المادة:</td>
+                            <td>""" + str(is_Pass_Dis) + """</td>
                         </tr>
                         <tr>
                             <td> التفاصيل :</td>
@@ -401,11 +405,13 @@ def controller ():
 
         if (total_sum_of_closing_sum_for_old == total_sum_of_open_balnce_for_now) and (total_sum_of_out_to_check_from_war == total_sum_of_out_to_check_from_dis) and (not is_pass_previosu_month) and (not is_pass_open_balance) and (not is_pass_war_empty_value) and (not is_Pass_Dis) and (not is_pass_dis_empty_value ):
             results = "نجاح التحقق"
+            is_Pass_Dis_with_war_as_total = (total_sum_of_out_to_check_from_war == total_sum_of_out_to_check_from_dis)
             bulid_final_dataset_war_dis()
         else:
             results = "فشل التحقق"
+            is_Pass_Dis_with_war_as_total = (total_sum_of_out_to_check_from_war == total_sum_of_out_to_check_from_dis)
 
-        sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance,is_pass_war_empty_value, total_sum_of_out_to_check_from_war,counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel)
+        sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance,is_pass_war_empty_value, total_sum_of_out_to_check_from_war,counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel,is_Pass_Dis_with_war_as_total)
         controller()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
