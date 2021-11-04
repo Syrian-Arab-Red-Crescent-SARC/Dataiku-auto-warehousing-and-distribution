@@ -131,10 +131,6 @@ def color_style(val):
         color = 'grey'
 
     return 'border-width:2px; background-color :%s' % color
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-old_war_check()
-
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_war_check():
     #geting the need df datafram
