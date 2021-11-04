@@ -168,7 +168,7 @@ def old_war_check():
     is_pass_war_empty_value = "EMPTY" in empty_war_df[{'Branch_Code','Sub_Branch_code'}].values
 
     #write the results in excel after styling, sorting
-    old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=False).style.applymap(color_style, subset=['check_status_open_balnce','check_status']).to_excel(r'%s/results.xlsx' % (path_war), index = False)
+    old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=True).style.applymap(color_style, subset=['check_status_open_balnce','check_status']).to_excel(r'%s/results.xlsx' % (path_war), index = False)
     results_war_excel = '%s/results.xlsx' % (path_war)
 
     return counts_of_check_status_open_balnce, counts_of_check_status, total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance, is_pass_war_empty_value, total_sum_of_out_to_check_from_war, results_war_excel
