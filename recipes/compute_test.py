@@ -71,6 +71,8 @@ def geting_email():
                                 old.write(bytearray(att.payload))
                                 status = 5
                             return status, replyFor, subject
+                        elif "old" in att.filename.lower():
+                            pass
                         elif "war" in att.filename.lower():
                             with open('{}/{}'.format(path_war, att.filename.replace(att.filename, "warehouse15.xlsx")), 'wb') as war:
                                 war.write(bytearray(att.payload))
@@ -125,7 +127,7 @@ def dis_check_build():
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def color_style(val):
     color = 'white'
-    if val == 'false':
+    if (val == 'false') or (val == 0):
         color = 'red'
     elif val == 'ok':
         color = 'grey'
