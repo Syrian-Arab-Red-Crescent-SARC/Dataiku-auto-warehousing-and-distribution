@@ -233,7 +233,7 @@ total_sum_of_open_balnce_for_now = 0
 #-hide email password as variable in dataiku..
 def geting_email():
     status = 0
-    with MailBox('imap.gmail.com').login('hq.sarc.im.ca@gmail.com', 'rrpexebvznphgxsp') as mailbox:
+    with MailBox('imap.gmail.com').login('hq.sarc.im.ca2@gmail.com', 'rdcxayhbnfdsgsky') as mailbox:
         if mailbox.fetch(A(seen=False)):
             for msg in mailbox.fetch(A(seen=False)):
                 replyFor= msg.from_
@@ -376,6 +376,11 @@ def dis_check():
     return counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis,results_dis_excel
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+def bulid_final_dataset_war_dis():
+    project.get_dataset("wearhouse_row_data_prepared_check_ok").build()
+    project.get_dataset("dis_row_dataset_prepared_to_ready_to_collect").build()
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, counts_of_check_status,
                   total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,
                   is_pass_previosu_month, is_pass_open_balance,
@@ -384,8 +389,8 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
                   total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel):
     msg = MIMEMultipart()
     # setup the parameters of the message
-    password = "rrpexebvznphgxsp"
-    msg['From'] = "hq.sarc.im.ca@gmail.com"
+    password = "rdcxayhbnfdsgsky"
+    msg['From'] = "hq.sarc.im.ca2@gmail.com"
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
@@ -499,8 +504,8 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
 def sedning_email_wrong(replyFor, subject):
     msg = MIMEMultipart()
     # setup the parameters of the message
-    password = "rrpexebvznphgxsp"
-    msg['From'] = "hq.sarc.im.ca@gmail.com"
+    password = "rdcxayhbnfdsgsky"
+    msg['From'] = "hq.sarc.im.ca2@gmail.com"
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
@@ -527,8 +532,8 @@ def sedning_email_wrong(replyFor, subject):
 def sedning_email_for_admin(replyFor, subject):
     msg = MIMEMultipart()
     # setup the parameters of the message
-    password = "rrpexebvznphgxsp"
-    msg['From'] = "hq.sarc.im.ca@gmail.com"
+    password = "rdcxayhbnfdsgsky"
+    msg['From'] = "hq.sarc.im.ca2@gmail.com"
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
@@ -574,7 +579,7 @@ def controller ():
 
         if (total_sum_of_closing_sum_for_old == total_sum_of_open_balnce_for_now) and (total_sum_of_out_to_check_from_war == total_sum_of_out_to_check_from_dis) and (not is_pass_previosu_month) and (not is_pass_open_balance) and (not is_pass_war_empty_value) and (not is_Pass_Dis) and (not is_pass_dis_empty_value ):
             results = "نجاح التحقق"
-            #CALL THE FUNCTINO TO SAVE TO DATAIKU
+            bulid_final_dataset_war_dis()
         else:
             results = "فشل التحقق"
         print("yes there new message")
