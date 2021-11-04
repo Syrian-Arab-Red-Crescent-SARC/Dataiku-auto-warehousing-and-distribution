@@ -259,7 +259,7 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
                         </tr>
                         <tr>
                             <td>مطابقة الكمية مع المواد الصادرة على مستوى المادة:</td>
-                            <td>""" + str(is_Pass_Dis) + """</td>
+                            <td>""" + str(not is_Pass_Dis) + """</td>
                         </tr>
                         <tr>
                             <td> التفاصيل :</td>
