@@ -391,11 +391,11 @@ def controller ():
         #nothing to do
         pass
     elif (status == 5):
+        old_check_build()
         sedning_email_for_admin(replyFor, subject)
     elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
-        #old_check_build()
         war_check_build()
         dis_check_build()
         old_war_check()
