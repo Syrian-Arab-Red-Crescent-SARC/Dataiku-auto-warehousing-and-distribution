@@ -49,6 +49,10 @@
         {
           "ref": "wearhouse_row_data_prepared",
           "deps": []
+        },
+        {
+          "ref": "dis_row_dataset_prepared",
+          "deps": []
         }
       ]
     }
@@ -64,11 +68,11 @@
     }
   },
   "versionTag": {
-    "versionNumber": 347,
+    "versionNumber": 348,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1636014453760
+    "lastModifiedOn": 1636014794259
   },
   "creationTag": {
     "versionNumber": 0,
