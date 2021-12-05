@@ -64,7 +64,7 @@ def geting_email():
             for msg in mailbox.fetch(A(seen=False)):
                 replyFor= msg.from_
                 subject = msg.subject
-                if msg.attachments.SaveAsFile:
+                if msg.attachments:
                     for att in msg.attachments:
                         if "old-hq" in att.filename.lower():
                             with open('{}/{}'.format(pathOld, att.filename.replace(att.filename, "old_data.xlsx")), 'wb') as old:
