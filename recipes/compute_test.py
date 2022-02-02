@@ -46,20 +46,22 @@ distt2 = "NOT SET YET!"
 
 color = 'not set yet'
 
-is_pass_open_balance = 1
+#is_pass_open_balance = 1
 isPassStatus = 1
 isPassDis = 1
 
 total_sum_of_closing_sum_for_old = 0
 total_sum_of_open_balnce_for_now = 0
+email = "hq.sarc.im.ca2@gmail.com"
+emailPassword = "rdcxayhbnfdsgsky"
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-# get list of email from INBOX folder for your hq.sarc email and it's to the right folder
+# get list of email from INBOX folder for your rd.sarc email and it's to the right folder
 #TO DO
 #-hide email password as variable in dataiku..
 def geting_email():
     status = 0
-    with MailBox('imap.gmail.com').login('hq.sarc.im.ca2@gmail.com', 'rdcxayhbnfdsgsky') as mailbox:
+    with MailBox('imap.gmail.com').login(email, emailPassword) as mailbox:
         if mailbox.fetch(A(seen=False)):
             for msg in mailbox.fetch(A(seen=False)):
                 replyFor= msg.from_
@@ -133,6 +135,7 @@ def color_style(val):
         color = 'grey'
 
     return 'border-width:2px; background-color :%s' % color
+
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_war_check():
     #geting the need df datafram
@@ -163,6 +166,9 @@ def old_war_check():
         is_pass_open_balance = 'false' in counts_of_check_status_open_balnce
     else:
         is_pass_open_balance = 0 in counts_of_check_status_open_balnce
+
+    #Check for closing balance
+        is_pass_open_balance = 0 in counts_of_check_status
 
     #check for your empty value
     is_pass_war_empty_value = "EMPTY" in empty_war_df[{'Branch_Code','Sub_Branch_code'}].values
@@ -213,8 +219,10 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
                   total_sum_of_out_to_check_from_dis, results_war_excel, results_dis_excel,is_Pass_Dis_with_war_as_total):
     msg = MIMEMultipart()
     # setup the parameters of the message
-    password = "rdcxayhbnfdsgsky"
-    msg['From'] = "hq.sarc.im.ca2@gmail.com"
+    password = emailPassword
+    msg['From'] = "rd.sarc.im.ca@gmail.com"
+    #just for testing
+    #msg['to'] = "rd.sarc.im.ca@gmail.com"
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
@@ -332,8 +340,8 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
 def sedning_email_wrong(replyFor, subject):
     msg = MIMEMultipart()
     # setup the parameters of the message
-    password = "rdcxayhbnfdsgsky"
-    msg['From'] = "hq.sarc.im.ca2@gmail.com"
+    password = emailPassword
+    msg['From'] = email
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
@@ -360,8 +368,8 @@ def sedning_email_wrong(replyFor, subject):
 def sedning_email_for_admin(replyFor, subject):
     msg = MIMEMultipart()
     # setup the parameters of the message
-    password = "rdcxayhbnfdsgsky"
-    msg['From'] = "hq.sarc.im.ca2@gmail.com"
+    password = emailPassword
+    msg['From'] = email
     msg['To'] = str(replyFor)
     msg['Subject'] = "SARC IM AUTO SYSTEM %s" % (subject)
     body = MIMEText("""<style>.email-style{direction: rtl;}</style>
@@ -422,3 +430,4 @@ schedule.every(1).minutes.do(controller)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
