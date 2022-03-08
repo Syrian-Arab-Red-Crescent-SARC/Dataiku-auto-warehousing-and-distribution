@@ -52,8 +52,8 @@ isPassDis = 1
 
 total_sum_of_closing_sum_for_old = 0
 total_sum_of_open_balnce_for_now = 0
-email = "hq.sarc.im.ca2@gmail.com"
-emailPassword = "rdcxayhbnfdsgsky"
+email = "tarek.shekehalshabab@sarc-sy.org"
+emailPassword = "WeNvN4n3nxrVfTX1"
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # get list of email from INBOX folder for your rd.sarc email and it's to the right folder
@@ -61,7 +61,7 @@ emailPassword = "rdcxayhbnfdsgsky"
 #-hide email password as variable in dataiku..
 def geting_email():
     status = 0
-    with MailBox('imap.gmail.com').login(email, emailPassword) as mailbox:
+    with MailBox('outlook.office365.com').login(email, emailPassword) as mailbox:
         if mailbox.fetch(A(seen=False)):
             for msg in mailbox.fetch(A(seen=False)):
                 replyFor= msg.from_
@@ -324,7 +324,7 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
     msg.attach(part)
     msg.attach(part2)
 
-    server = smtplib.SMTP('smtp.gmail.com: 587')
+    server = smtplib.SMTP('smtp.office365.com: 587')
     server.starttls()
 
     # Login Credentials for sending the mail
@@ -352,7 +352,7 @@ def sedning_email_wrong(replyFor, subject):
 
     msg.attach(body)
 
-    server = smtplib.SMTP('smtp.gmail.com: 587')
+    server = smtplib.SMTP('smtp.office365.com: 587')
     server.starttls()
 
     # Login Credentials for sending the mail
@@ -382,7 +382,7 @@ def sedning_email_for_admin(replyFor, subject):
 
     msg.attach(body)
 
-    server = smtplib.SMTP('smtp.gmail.com: 587')
+    server = smtplib.SMTP('smtp.office365.com: 587')
     server.starttls()
 
     # Login Credentials for sending the mail
