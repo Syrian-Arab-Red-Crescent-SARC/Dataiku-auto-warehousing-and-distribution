@@ -324,7 +324,7 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
     msg.attach(part)
     msg.attach(part2)
 
-    server = smtplib.SMTP('smtp.office365.com:587')
+    server = smtplib.SMTP('smtp.office365.com', 587)
     server.starttls()
 
     # Login Credentials for sending the mail
