@@ -321,11 +321,10 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
     encoders.encode_base64(part2)
     part2.add_header('Content-Disposition', 'attachment', filename='results_d.xlsx')
 
-    msg.attach(part)
-    msg.attach(part2)
+    #msg.attach(part)
+    #msg.attach(part2)
 
     server = smtplib.SMTP('smtp.office365.com', 587)
-    server.set_debuglevel(1)
     server.starttls()
 
     # Login Credentials for sending the mail
