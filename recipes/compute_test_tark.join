@@ -84,6 +84,18 @@
           "caseInsensitive": true,
           "maxDistance": 1,
           "type": "EQ"
+        },
+        {
+          "column1": {
+            "name": "Month",
+            "table": 0
+          },
+          "column2": {
+            "name": "Month",
+            "table": 1
+          },
+          "maxDistance": 1,
+          "type": "EQ"
         }
       ]
     }
