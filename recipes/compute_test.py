@@ -425,9 +425,12 @@ def controller ():
         controller()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-schedule.every(1).minutes.do(controller)
+try:
+    schedule.every(1).minutes.do(controller)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
+except:
+    pass
