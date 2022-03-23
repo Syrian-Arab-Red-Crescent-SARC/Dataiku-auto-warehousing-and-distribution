@@ -52,8 +52,8 @@ isPassDis = 1
 
 total_sum_of_closing_sum_for_old = 0
 total_sum_of_open_balnce_for_now = 0
-email = "tarek.shekehalshabab@sarc-sy.org"
-emailPassword = "WeNvN4n3nxrVfTX1"
+email = "im.dataiku@sarc-sy.org"
+emailPassword = "77rF!t98i@x3c!fyosK&"
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # get list of email from INBOX folder for your rd.sarc email and it's to the right folder
