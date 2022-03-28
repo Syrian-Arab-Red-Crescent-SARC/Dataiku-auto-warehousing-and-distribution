@@ -128,9 +128,7 @@
           "columnType": "ALPHANUM",
           "currentMode": "ALPHANUM",
           "sort": "count",
-          "selectedValues": {
-            "EMPTY": true
-          }
+          "selectedValues": {}
         },
         "alphanumFilter": {
           "type": "alphanum",
