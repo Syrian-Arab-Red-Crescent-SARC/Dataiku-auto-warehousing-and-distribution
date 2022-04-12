@@ -171,7 +171,7 @@ def old_war_check():
         is_pass_open_balance = 0 in counts_of_check_status
 
     #check for your empty value
-    is_pass_war_empty_value = "EMPTY" in empty_war_df[{'Branch_Code','Sub_Branch_code'}].values
+    is_pass_war_empty_value = "EMPTY" in empty_war_df[{'Branch_Code','Sub_Branch_code', 'Item'}].values
 
     #write the results in excel after styling, sorting
     old_war_df.sort_values(by=['check_status_open_balnce','check_status'],ascending=True).style.applymap(color_style, subset=['check_status_open_balnce','check_status']).to_excel(r'%s/results.xlsx' % (path_war), index = False)
