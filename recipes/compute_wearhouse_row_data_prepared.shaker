@@ -169,7 +169,8 @@
       "params": {
         "columns": [
           "Branch_Code",
-          "Sub_Branch_code"
+          "Sub_Branch_code",
+          "Item"
         ],
         "appliesTo": "COLUMNS",
         "value": "EMPTY"
