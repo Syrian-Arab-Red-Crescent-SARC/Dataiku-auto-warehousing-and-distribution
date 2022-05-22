@@ -100,6 +100,16 @@
       "name": "count",
       "type": "bigint",
       "table": 0
+    },
+    {
+      "name": "Sub-Branch",
+      "type": "string",
+      "table": 1
+    },
+    {
+      "name": "Warehouse_Name",
+      "type": "string",
+      "table": 1
     }
   ],
   "engineParams": {
@@ -152,6 +162,7 @@
         "enabled": false
       },
       "autoSelectColumns": false,
+      "prefix": "old_open",
       "index": 1,
       "computedColumns": []
     }
@@ -220,6 +231,14 @@
           {
             "name": "count",
             "type": "bigint"
+          },
+          {
+            "name": "old_open_Sub-Branch",
+            "type": "string"
+          },
+          {
+            "name": "old_open_Warehouse_Name",
+            "type": "string"
           }
         ],
         "userModified": false
