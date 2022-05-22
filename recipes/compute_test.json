@@ -53,10 +53,6 @@
         {
           "ref": "dis_row_dataset_prepared",
           "deps": []
-        },
-        {
-          "ref": "wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin",
-          "deps": []
         }
       ]
     }
@@ -72,11 +68,11 @@
     }
   },
   "versionTag": {
-    "versionNumber": 395,
+    "versionNumber": 385,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653221714065
+    "lastModifiedOn": 1652701668888
   },
   "creationTag": {
     "versionNumber": 0,
