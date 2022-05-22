@@ -1,0 +1,121 @@
+{
+  "script": {
+    "steps": [],
+    "maxProcessedMemTableBytes": -1,
+    "columnsSelection": {
+      "mode": "ALL"
+    },
+    "columnWidthsByName": {
+      "123": 300,
+      "Month": 106,
+      "Branch": 176,
+      "Sub-Branch": 232,
+      "Warehouse Name": 190,
+      "Partner": 100,
+      "Item": 300,
+      "Sector": 169,
+      "Unit": 100,
+      "CTN": 100,
+      "Other Items": 141,
+      "Open. Balance": 113,
+      "Total IN": 100,
+      "Receiving Date": 120,
+      "Goods Received Note": 176,
+      "Total out": 100,
+      "Delivery Note": 190,
+      "Location of sent Items": 225,
+      "Sending Date": 197,
+      "Loss": 100,
+      "Reasons for Loss": 135,
+      "Damage": 100,
+      "Reasons for Damage": 150,
+      "Inventory": 100,
+      "Closing Balance": 128,
+      "Distribtution": 176,
+      "Return": 176,
+      "Transfer": 113,
+      "Convoys": 100,
+      "Nots": 183,
+      "Branch Code": 100,
+      "Sub Branch code": 128,
+      "Unique Items Code": 143
+    },
+    "coloring": {
+      "scheme": "MEANING_AND_STATUS",
+      "individualColumns": [],
+      "valueColoringMode": "HASH"
+    },
+    "sorting": [],
+    "analysisColumnData": {},
+    "explorationSampling": {
+      "selection": {
+        "maxStoredBytes": 104857600,
+        "timeout": -1,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "HEAD_SEQUENTIAL",
+        "maxRecords": 10000,
+        "targetRatio": 0.02,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "vizSampling": {
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "exploreUIParams": {
+      "autoRefresh": true
+    },
+    "globalSearchQuery": "",
+    "explorationFilters": [
+      {
+        "column": "Branch",
+        "type": "columnFilter",
+        "currentMode": "FACET",
+        "active": true,
+        "facet": {
+          "type": "facet",
+          "column": "Branch",
+          "columnType": "ALPHANUM",
+          "currentMode": "ALPHANUM",
+          "sort": "count",
+          "selectedValues": {
+            "Deir-ez-zor دير الزور": true
+          }
+        },
+        "alphanumFilter": {
+          "type": "alphanum",
+          "column": "Branch",
+          "values": [],
+          "params": {
+            "mode": "full_string",
+            "normalization": "exact"
+          }
+        },
+        "validityFilter": {
+          "type": "validity",
+          "column": "Branch",
+          "params": {
+            "type": "Text",
+            "ok": true,
+            "nok": true,
+            "empty": true
+          }
+        }
+      }
+    ],
+    "previewMode": "ALL_ROWS"
+  },
+  "charts": []
+}
