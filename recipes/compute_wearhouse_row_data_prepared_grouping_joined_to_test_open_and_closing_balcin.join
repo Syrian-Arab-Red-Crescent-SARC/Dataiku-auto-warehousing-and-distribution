@@ -21,6 +21,40 @@
           },
           "maxDistance": 1,
           "type": "EQ"
+        },
+        {
+          "column1": {
+            "name": "Warehouse_Name",
+            "table": 0
+          },
+          "column2": {
+            "name": "Warehouse_Name",
+            "table": 1
+          },
+          "maxDistance": 1,
+          "type": "EQ"
+        },
+        {
+          "column1": {
+            "name": "Partner",
+            "table": 0
+          },
+          "column2": {
+            "name": "Partner",
+            "table": 1
+          },
+          "type": "EQ"
+        },
+        {
+          "column1": {
+            "name": "Month",
+            "table": 0
+          },
+          "column2": {
+            "name": "Month",
+            "table": 1
+          },
+          "type": "EQ"
         }
       ]
     }
