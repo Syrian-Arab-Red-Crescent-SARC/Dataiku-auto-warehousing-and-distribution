@@ -104,7 +104,7 @@ def old_check_build():
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").clear(partitions=None)
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").build()
     project.get_dataset("wearhouse_row_compning_ok_month_prepared").build()
-    project.get_dataset("wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin ").build()
+    project.get_dataset("wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin").build()
     project.get_dataset("test_tarek_month").build()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
