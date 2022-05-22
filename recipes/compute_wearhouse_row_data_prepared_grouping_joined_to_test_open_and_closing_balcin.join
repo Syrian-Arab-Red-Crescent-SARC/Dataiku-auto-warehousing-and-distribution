@@ -3,7 +3,7 @@
     {
       "table2": 1,
       "table1": 0,
-      "conditionsMode": "AND",
+      "conditionsMode": "NATURAL",
       "rightLimit": {
         "decisionColumn": {}
       },
