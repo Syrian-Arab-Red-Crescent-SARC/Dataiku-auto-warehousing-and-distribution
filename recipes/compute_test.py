@@ -139,7 +139,7 @@ def color_style(val):
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_war_check():
     #geting the need df datafram
-    war_to_check = dataiku.Dataset("final_check")
+    war_to_check = dataiku.Dataset("wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin")
     old_war_df = war_to_check.get_dataframe()
 
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
