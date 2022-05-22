@@ -59,11 +59,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 1,
+    "versionNumber": 2,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653220819282
+    "lastModifiedOn": 1653220877916
   },
   "creationTag": {
     "versionNumber": 0,
@@ -145,6 +145,14 @@
       {
         "name": "count",
         "type": "bigint"
+      },
+      {
+        "name": "old_open_Sub-Branch",
+        "type": "string"
+      },
+      {
+        "name": "old_open_Warehouse_Name",
+        "type": "string"
       }
     ],
     "userModified": true
