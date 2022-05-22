@@ -62,36 +62,6 @@
       "table": 0
     },
     {
-      "name": "Open_Balance_sum",
-      "type": "bigint",
-      "table": 0
-    },
-    {
-      "name": "Total_IN_sum",
-      "type": "bigint",
-      "table": 0
-    },
-    {
-      "name": "Total_out_sum",
-      "type": "bigint",
-      "table": 0
-    },
-    {
-      "name": "Loss_sum",
-      "type": "bigint",
-      "table": 0
-    },
-    {
-      "name": "Damage_sum",
-      "type": "bigint",
-      "table": 0
-    },
-    {
-      "name": "Inventory_sum",
-      "type": "bigint",
-      "table": 0
-    },
-    {
       "name": "Closing_Balance_sum",
       "type": "bigint",
       "table": 0
@@ -100,6 +70,11 @@
       "name": "count",
       "type": "bigint",
       "table": 0
+    },
+    {
+      "name": "Month",
+      "type": "string",
+      "table": 1
     },
     {
       "name": "Sub-Branch",
@@ -148,23 +123,12 @@
   },
   "virtualInputs": [
     {
-      "preFilter": {
-        "distinct": false,
-        "enabled": false
-      },
-      "autoSelectColumns": false,
-      "index": 0,
-      "computedColumns": []
+      "prefix": "old",
+      "index": 0
     },
     {
-      "preFilter": {
-        "distinct": false,
-        "enabled": false
-      },
-      "autoSelectColumns": false,
-      "prefix": "old_open",
-      "index": 1,
-      "computedColumns": []
+      "prefix": "war",
+      "index": 1
     }
   ],
   "computedColumns": [],
@@ -173,71 +137,52 @@
       "schema": {
         "columns": [
           {
-            "name": "Month",
+            "name": "old_Month",
             "type": "string"
           },
           {
-            "name": "Sub-Branch",
+            "name": "old_Sub-Branch",
             "type": "string"
           },
           {
-            "name": "Warehouse_Name",
+            "name": "old_Warehouse_Name",
             "type": "string"
           },
           {
-            "name": "Partner",
+            "name": "old_Partner",
             "type": "string"
           },
           {
-            "name": "Unit",
+            "name": "old_Unit",
             "type": "string"
           },
           {
-            "name": "CTN",
+            "meaning": "Text",
+            "name": "old_CTN",
             "type": "string"
           },
           {
-            "name": "Item",
+            "name": "old_Item",
             "type": "string"
           },
           {
-            "name": "Open_Balance_sum",
+            "name": "old_Closing_Balance_sum",
             "type": "bigint"
           },
           {
-            "name": "Total_IN_sum",
+            "name": "old_count",
             "type": "bigint"
           },
           {
-            "name": "Total_out_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "Loss_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "Damage_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "Inventory_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "Closing_Balance_sum",
-            "type": "bigint"
-          },
-          {
-            "name": "count",
-            "type": "bigint"
-          },
-          {
-            "name": "old_open_Sub-Branch",
+            "name": "war_Month",
             "type": "string"
           },
           {
-            "name": "old_open_Warehouse_Name",
+            "name": "war_Sub-Branch",
+            "type": "string"
+          },
+          {
+            "name": "war_Warehouse_Name",
             "type": "string"
           }
         ],
