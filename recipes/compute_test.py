@@ -144,7 +144,7 @@ def old_war_check():
     old_war_df = war_to_check.get_dataframe()
     
     #adding and Testing 
-    war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin ")
+    war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin")
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
     
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
