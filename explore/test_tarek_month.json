@@ -116,7 +116,11 @@
           "columnType": "ALPHANUM",
           "currentMode": "ALPHANUM",
           "sort": "count",
-          "selectedValues": {}
+          "selectedValues": {
+            "Deir-ez-zor دير الزور": true,
+            "Al Mayadin الميادين": true,
+            "Abu Kamal البوكمال": true
+          }
         },
         "alphanumFilter": {
           "type": "alphanum",
