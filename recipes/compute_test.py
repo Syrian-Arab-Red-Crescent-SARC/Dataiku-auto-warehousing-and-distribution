@@ -160,8 +160,10 @@ def old_war_check():
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
     #testing start
-    #total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch'] == empty_war_df['Branch'].values[0])
-    total_sum_of_closing_sum_for_old = old_war_df_check.where(old_war_df_check['Branch'] == empty_war_df['Branch'].values[0])
+    total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch'] == empty_war_df['Branch'].values[0])
+    total_sum_of_closing_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
+
+
     #testin edn
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
     total_sum_of_out_to_check_from_war = war_total_out['Total_out_sum'].sum()
@@ -346,6 +348,7 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
     server.sendmail(msg['From'], msg['To'], msg.as_string())
 
     server.quit()
+print(total_sum_of_closing_sum_for_old)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def sedning_email_wrong(replyFor, subject):
@@ -445,6 +448,3 @@ try:
 
 except:
     pass
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-print(total_sum_of_closing_sum_for_old)
