@@ -112,7 +112,7 @@ def war_check_build():
     project.get_dataset("wearhouse_row_data").build()
     project.get_dataset("wearhouse_row_data_prepared").build()
     project.get_dataset("wearhouse_row_data_prepared_grouping").build()
-    project.get_dataset("wearhous_row_and_month_joined_to_check_openbalne").build()
+    #project.get_dataset("wearhous_row_and_month_joined_to_check_openbalne").build()
     project.get_dataset("final_check").build()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
