@@ -112,6 +112,8 @@ def war_check_build():
     project.get_dataset("wearhouse_row_data").build()
     project.get_dataset("wearhouse_row_data_prepared").build()
     project.get_dataset("wearhouse_row_data_prepared_grouping").build()
+    project.get_dataset("wearhouse_row_compning_ok_month_prepared").build()
+
     #project.get_dataset("wearhous_row_and_month_joined_to_check_openbalne").build()
     project.get_dataset("final_check").build()
 
@@ -443,3 +445,6 @@ try:
 
 except:
     pass
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+print(total_sum_of_closing_sum_for_old)
