@@ -160,6 +160,7 @@ def old_war_check():
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
     #testing start
+    total_sum_of_closing_sum_for_old_search = "NOT SET YET"
     total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch'] == empty_war_df['Branch'].values[0])
     total_sum_of_closing_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
 
