@@ -415,9 +415,9 @@ def controller ():
     elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
-        old_war_check()
         war_check_build()
         dis_check_build()
+        old_war_check()
         dis_check()
         counts_of_check_status_open_balnce, counts_of_check_status,total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance,is_pass_war_empty_value, total_sum_of_out_to_check_from_war, results_war_excel = old_war_check()
         counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis, results_dis_excel = dis_check()
