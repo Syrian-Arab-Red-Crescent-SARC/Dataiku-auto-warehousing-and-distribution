@@ -1,11 +1,10 @@
 {
-  "type": "Filesystem",
-  "managed": true,
-  "formatType": "csv",
+  "type": "UploadedFiles",
+  "managed": false,
+  "formatType": "excel",
   "checklists": {
     "checklists": []
   },
-  "checks": [],
   "customMeta": {
     "kv": {}
   },
@@ -24,34 +23,13 @@
     }
   },
   "formatParams": {
-    "style": "unix",
-    "charset": "utf8",
-    "separator": "\t",
-    "quoteChar": "\"",
-    "escapeChar": "\\",
-    "dateSerializationFormat": "ISO",
-    "arrayMapFormat": "json",
-    "hiveSeparators": [
-      "\u0002",
-      "\u0003",
-      "\u0004",
-      "\u0005",
-      "\u0006",
-      "\u0007",
-      "\b"
-    ],
+    "xlsx": true,
+    "preserveNumberFormatting": false,
+    "parseDatesToISO": false,
     "skipRowsBeforeHeader": 0,
-    "parseHeaderRow": false,
+    "parseHeaderRow": true,
     "skipRowsAfterHeader": 0,
-    "probableNumberOfRecords": 0,
-    "normalizeBooleans": false,
-    "normalizeDoubles": true,
-    "readAdditionalColumnsBehavior": "INSERT_IN_DATA_WARNING",
-    "readMissingColumnsBehavior": "DISCARD_SILENT",
-    "readDataTypeMismatchBehavior": "DISCARD_WARNING",
-    "writeDataTypeMismatchBehavior": "DISCARD_WARNING",
-    "fileReadFailureBehavior": "FAIL",
-    "compress": "gz"
+    "sheets": "*Sheet1"
   },
   "partitioning": {
     "ignoreNonMatchingFile": false,
@@ -59,23 +37,23 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 3,
+    "versionNumber": 0,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653222140997
+    "lastModifiedOn": 1653302095689
   },
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653220819275
+    "lastModifiedOn": 1653302095689
   },
   "tags": [],
   "params": {
-    "connection": "filesystem_managed",
-    "path": "${projectKey}/wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin",
+    "uploadBoxId": "b9a0af41dfec79846d80ed177fdbb9693118dbaf484d87065b8893e2db0d9264",
+    "uploadConnection": "Default (in DSS data dir.)",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -108,8 +86,7 @@
       },
       {
         "name": "old_CTN",
-        "type": "string",
-        "meaning": "Text"
+        "type": "string"
       },
       {
         "name": "old_Item",
@@ -117,11 +94,11 @@
       },
       {
         "name": "old_Closing_Balance_sum",
-        "type": "bigint"
+        "type": "string"
       },
       {
         "name": "old_count",
-        "type": "bigint"
+        "type": "string"
       },
       {
         "name": "war_Month",

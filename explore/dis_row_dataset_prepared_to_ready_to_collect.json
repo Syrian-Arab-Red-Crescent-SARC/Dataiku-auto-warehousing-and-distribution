@@ -133,7 +133,9 @@
           "columnType": "ALPHANUM",
           "currentMode": "ALPHANUM",
           "sort": "count",
-          "selectedValues": {}
+          "selectedValues": {
+            "July تموز": true
+          }
         },
         "alphanumFilter": {
           "type": "alphanum",
