@@ -26,10 +26,10 @@
     "xlsx": true,
     "preserveNumberFormatting": false,
     "parseDatesToISO": true,
-    "skipRowsBeforeHeader": 0,
+    "skipRowsBeforeHeader": 1,
     "parseHeaderRow": true,
     "skipRowsAfterHeader": 0,
-    "sheets": "*Sheet1"
+    "sheets": "*Warehouse"
   },
   "partitioning": {
     "ignoreNonMatchingFile": false,
@@ -37,11 +37,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 17,
+    "versionNumber": 18,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653224766159
+    "lastModifiedOn": 1653299699879
   },
   "creationTag": {
     "versionNumber": 0,
