@@ -142,16 +142,26 @@ def old_war_check():
     war_to_check = dataiku.Dataset("final_check")
     old_war_df = war_to_check.get_dataframe()
 
+    #adding and Testing
+    war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
+    old_war_df_check = war_to_check_open_totlo.get_dataframe()
+
+
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
 
     war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
     empty_war_df = war_to_check_empty_value.get_dataframe()
 
+    #value_to_know_the_sub_bracnh =
+
     #set the variables
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
-    total_sum_of_closing_sum_for_old = old_war_df['old_Closing_Balance_sum'].sum()
+    #testing start
+    total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch']==empty_war_df['Branch'].values[0])
+    total_sum_of_clsogin_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
+    #testin edn
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
     total_sum_of_out_to_check_from_war = war_total_out['Total_out_sum'].sum()
     #check that all the items total from previous month is there
@@ -406,9 +416,9 @@ def controller ():
     elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
+        old_war_check()
         war_check_build()
         dis_check_build()
-        old_war_check()
         dis_check()
         counts_of_check_status_open_balnce, counts_of_check_status,total_sum_of_closing_sum_for_old, total_sum_of_open_balnce_for_now,is_pass_previosu_month, is_pass_open_balance,is_pass_war_empty_value, total_sum_of_out_to_check_from_war, results_war_excel = old_war_check()
         counts_of_check_status_dis, is_Pass_Dis, is_pass_dis_empty_value, total_sum_of_out_to_check_from_dis, results_dis_excel = dis_check()
