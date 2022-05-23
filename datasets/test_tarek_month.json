@@ -59,11 +59,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 5,
+    "versionNumber": 4,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653291367997
+    "lastModifiedOn": 1617008536966
   },
   "creationTag": {
     "versionNumber": 0,
@@ -88,10 +88,6 @@
     "columns": [
       {
         "name": "Month",
-        "type": "string"
-      },
-      {
-        "name": "Branch",
         "type": "string"
       },
       {

@@ -1,5 +1,5 @@
 {
-  "type": "grouping",
+  "type": "join",
   "neverRecomputeExistingPartitions": false,
   "optionalDependencies": false,
   "customMeta": {
@@ -7,11 +7,17 @@
   },
   "redispatchPartitioning": false,
   "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
   "inputs": {
     "main": {
       "items": [
         {
-          "ref": "wearhouse_row_compning_ok_month_prepared",
+          "ref": "test_tarek_month",
+          "deps": []
+        },
+        {
+          "ref": "wearhouse_row_data_prepared_grouping",
           "deps": []
         }
       ]
@@ -21,25 +27,25 @@
     "main": {
       "items": [
         {
-          "ref": "test_tarek_month",
+          "ref": "wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin",
           "appendMode": false
         }
       ]
     }
   },
   "versionTag": {
-    "versionNumber": 4,
+    "versionNumber": 17,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1614066572471
+    "lastModifiedOn": 1653223333908
   },
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1609867215917
+    "lastModifiedOn": 1653220819407
   },
   "tags": [],
   "customFields": {},

@@ -64,8 +64,7 @@
       "Item": 300,
       "Closing_Balance_sum": 158,
       "count": 100,
-      "Month": 141,
-      "Branch": 176
+      "Month": 141
     },
     "coloring": {
       "scheme": "MEANING_AND_STATUS",
@@ -119,8 +118,8 @@
           "sort": "count",
           "selectedValues": {
             "Deir-ez-zor دير الزور": true,
-            "Abu Kamal البوكمال": true,
-            "Al Mayadin الميادين": true
+            "Al Mayadin الميادين": true,
+            "Abu Kamal البوكمال": true
           }
         },
         "alphanumFilter": {
@@ -135,39 +134,6 @@
         "validityFilter": {
           "type": "validity",
           "column": "Sub-Branch",
-          "params": {
-            "type": "Text",
-            "ok": true,
-            "nok": true,
-            "empty": true
-          }
-        }
-      },
-      {
-        "column": "Branch",
-        "type": "columnFilter",
-        "currentMode": "FACET",
-        "active": true,
-        "facet": {
-          "type": "facet",
-          "column": "Branch",
-          "columnType": "ALPHANUM",
-          "currentMode": "ALPHANUM",
-          "sort": "count",
-          "selectedValues": {}
-        },
-        "alphanumFilter": {
-          "type": "alphanum",
-          "column": "Branch",
-          "values": [],
-          "params": {
-            "mode": "full_string",
-            "normalization": "exact"
-          }
-        },
-        "validityFilter": {
-          "type": "validity",
-          "column": "Branch",
           "params": {
             "type": "Text",
             "ok": true,
