@@ -147,7 +147,7 @@ def old_war_check():
     war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin")
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
     
-    value_to_know_the_sub_bracnh = " Lattakia اللاذقية "
+    value_to_know_the_sub_bracnh = "Lattakia اللاذقية"
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
 
