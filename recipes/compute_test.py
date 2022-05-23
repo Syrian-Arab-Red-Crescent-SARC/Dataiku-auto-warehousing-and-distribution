@@ -104,7 +104,6 @@ def old_check_build():
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").clear(partitions=None)
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").build()
     project.get_dataset("wearhouse_row_compning_ok_month_prepared").build()
-    #project.get_dataset("wearhouse_row_data_prepared_grouping_joined_to_test_open_and_closing_balcin").build()
     project.get_dataset("test_tarek_month").build()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
@@ -142,24 +141,25 @@ def old_war_check():
     #geting the need df datafram
     war_to_check = dataiku.Dataset("final_check")
     old_war_df = war_to_check.get_dataframe()
-    
-    #adding and Testing 
+
+    #adding and Testing
     war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
-    
-    value_to_know_the_sub_bracnh = "Lattakia اللاذقية"
-    
+
+
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
 
     war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
     empty_war_df = war_to_check_empty_value.get_dataframe()
 
+    value_to_know_the_sub_bracnh = empty_war_df['Branch'].values[0]
+
     #set the variables
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
     #testing start
-    total_sum_of_closing_sum_for_old_search = old_war_df_check.loc[old_war_df_check['Branch'].isin(value_to_know_the_sub_bracnh)]
+    total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch']==value_to_know_the_sub_bracnh)
     total_sum_of_clsogin_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
     #testin edn
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
