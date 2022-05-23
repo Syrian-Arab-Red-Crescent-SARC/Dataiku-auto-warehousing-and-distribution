@@ -130,9 +130,7 @@
           "columnType": "ALPHANUM",
           "currentMode": "ALPHANUM",
           "sort": "count",
-          "selectedValues": {
-            "School Kit-حقيبة مدرسية": true
-          }
+          "selectedValues": {}
         },
         "alphanumFilter": {
           "type": "alphanum",
@@ -165,9 +163,7 @@
           "columnType": "ALPHANUM",
           "currentMode": "ALPHANUM",
           "sort": "count",
-          "selectedValues": {
-            "Deir-ez-zor دير الزور": true
-          }
+          "selectedValues": {}
         },
         "alphanumFilter": {
           "type": "alphanum",
