@@ -153,13 +153,12 @@ def old_war_check():
     war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
     empty_war_df = war_to_check_empty_value.get_dataframe()
 
-    #value_to_know_the_sub_bracnh =
 
     #set the variables
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
     #testing start
-    total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch']==empty_war_df['Branch'].values[0])
+    total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch']== empty_war_df['Branch'].values[0])
     total_sum_of_clsogin_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
     #testin edn
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
