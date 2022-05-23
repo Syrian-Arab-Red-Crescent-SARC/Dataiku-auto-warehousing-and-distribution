@@ -148,10 +148,10 @@ def old_war_check():
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
 
 
-    #war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
+    war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
 
-    war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
+    #war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
     empty_war_df = war_to_check_empty_value.get_dataframe()
 
 
