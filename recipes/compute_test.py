@@ -44,6 +44,8 @@ disdf = "NOT SET YET!"
 distt = "NOT SET YET!"
 distt2 = "NOT SET YET!"
 
+total_sum_of_closing_sum_for_old_search = 0
+
 color = 'not set yet'
 
 #is_pass_open_balance = 1
@@ -138,6 +140,7 @@ def color_style(val):
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_open_balance_check():
+    
     war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
 
