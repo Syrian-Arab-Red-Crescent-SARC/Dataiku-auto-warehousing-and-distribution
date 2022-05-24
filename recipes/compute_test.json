@@ -53,6 +53,14 @@
         {
           "ref": "dis_row_dataset_prepared",
           "deps": []
+        },
+        {
+          "ref": "test",
+          "deps": []
+        },
+        {
+          "ref": "wearhouse_row_compning_ok_month_prepared",
+          "deps": []
         }
       ]
     }
@@ -68,11 +76,11 @@
     }
   },
   "versionTag": {
-    "versionNumber": 459,
+    "versionNumber": 460,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653396667313
+    "lastModifiedOn": 1653396718586
   },
   "creationTag": {
     "versionNumber": 0,
