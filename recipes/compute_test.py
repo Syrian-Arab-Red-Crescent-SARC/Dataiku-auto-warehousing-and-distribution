@@ -140,7 +140,7 @@ def color_style(val):
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_open_balance_check():
-    
+
     war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
 
@@ -161,7 +161,7 @@ def old_war_check():
     old_war_df = war_to_check.get_dataframe()
 
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
-    war_total_out = war_to_check_total_out.get_dataframe()    
+    war_total_out = war_to_check_total_out.get_dataframe()
 
     war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
     empty_war_df = war_to_check_empty_value.get_dataframe()
@@ -169,7 +169,7 @@ def old_war_check():
     #set the variables
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
-    
+
     total_sum_of_closing_sum_for_old = old_open_balance_check()
 
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
@@ -426,6 +426,7 @@ def controller ():
     elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
+        old_open_balance_check()
         war_check_build()
         dis_check_build()
         old_war_check()
