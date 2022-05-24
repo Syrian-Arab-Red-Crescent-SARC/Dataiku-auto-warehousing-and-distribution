@@ -140,7 +140,9 @@ def color_style(val):
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_open_balance_check():
-
+    old_check_build()
+    war_check_build()
+    
     war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
 
