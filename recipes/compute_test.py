@@ -100,18 +100,6 @@ def geting_email():
     return status, replyFor, subject
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
- #adding and Testing
-    war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
-    old_war_df_check = war_to_check_open_totlo.get_dataframe()
-
-    #testing start
-    #total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch']==old_war_df_check['Branch'].values[1])
-    #total_sum_of_closing_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
-    #testin ending
-
-    #print(old_war_df_check)
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def old_check_build():
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").clear(partitions=None)
     project.get_dataset("Rural_Damascus___Warehouse__September_2020__2_").build()
