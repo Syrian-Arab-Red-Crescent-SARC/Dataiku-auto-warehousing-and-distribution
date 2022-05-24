@@ -59,11 +59,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 1,
+    "versionNumber": 2,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1612094231815
+    "lastModifiedOn": 1653397587002
   },
   "creationTag": {
     "versionNumber": 0,
@@ -86,6 +86,12 @@
   },
   "schema": {
     "columns": [
+      {
+        "name": "Branch",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
       {
         "name": "Sub-Branch",
         "type": "string"
@@ -171,7 +177,7 @@
         "type": "double"
       }
     ],
-    "userModified": false
+    "userModified": true
   },
   "dkuProperties": [],
   "metrics": {
