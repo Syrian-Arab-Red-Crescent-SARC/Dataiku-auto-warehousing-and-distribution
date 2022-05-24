@@ -144,7 +144,7 @@ def old_war_check():
 
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
-   old_check_build()
+    old_check_build()
     war_check_build()
     #set the variables
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
