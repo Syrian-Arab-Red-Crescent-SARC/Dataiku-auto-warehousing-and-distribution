@@ -61,6 +61,10 @@
         {
           "ref": "wearhouse_row_compning_ok_month_prepared",
           "deps": []
+        },
+        {
+          "ref": "dis_row_dataset",
+          "deps": []
         }
       ]
     }
@@ -76,11 +80,11 @@
     }
   },
   "versionTag": {
-    "versionNumber": 461,
+    "versionNumber": 462,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1653396723986
+    "lastModifiedOn": 1653396980778
   },
   "creationTag": {
     "versionNumber": 0,
