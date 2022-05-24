@@ -142,10 +142,6 @@ def old_war_check():
     war_to_check = dataiku.Dataset("final_check")
     old_war_df = war_to_check.get_dataframe()
 
-    #adding and Testing
-    war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
-    old_war_df_check = war_to_check_open_totlo.get_dataframe()
-
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
 
@@ -156,6 +152,8 @@ def old_war_check():
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
     total_sum_of_closing_sum_for_old = old_war_df['old_Closing_Balance_sum'].sum()
+    total_sum_of_closing_sum_for_old = 5555
+
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
     total_sum_of_out_to_check_from_war = war_total_out['Total_out_sum'].sum()
     #check that all the items total from previous month is there
