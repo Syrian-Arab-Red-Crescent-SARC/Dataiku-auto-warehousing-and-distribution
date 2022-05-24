@@ -161,6 +161,7 @@ def old_war_check():
     total_sum_of_closing_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
     #testin ending
 
+    total_sum_of_closing_sum_for_old = 5555
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
     total_sum_of_out_to_check_from_war = war_total_out['Total_out_sum'].sum()
     #check that all the items total from previous month is there
