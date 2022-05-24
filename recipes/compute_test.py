@@ -426,7 +426,7 @@ def controller ():
     elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
-        test = old_open_balance_check()
+        test = 55
         war_check_build(test)
         dis_check_build()
         old_war_check()
