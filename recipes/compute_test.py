@@ -50,7 +50,6 @@ color = 'not set yet'
 isPassStatus = 1
 isPassDis = 1
 
-total_sum_of_closing_sum_for_old_search = "NOT SET YET"
 total_sum_of_closing_sum_for_old = 0
 total_sum_of_open_balnce_for_now = 0
 email = "im.dataiku@sarc-sy.org"
@@ -113,9 +112,7 @@ def war_check_build():
     project.get_dataset("wearhouse_row_data").build()
     project.get_dataset("wearhouse_row_data_prepared").build()
     project.get_dataset("wearhouse_row_data_prepared_grouping").build()
-    project.get_dataset("wearhouse_row_compning_ok_month_prepared").build()
-
-    #project.get_dataset("wearhous_row_and_month_joined_to_check_openbalne").build()
+    project.get_dataset("wearhous_row_and_month_joined_to_check_openbalne").build()
     project.get_dataset("final_check").build()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
@@ -149,24 +146,21 @@ def old_war_check():
     war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
     old_war_df_check = war_to_check_open_totlo.get_dataframe()
 
-
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
 
     war_to_check_empty_value = dataiku.Dataset("wearhouse_row_data_prepared")
     empty_war_df = war_to_check_empty_value.get_dataframe()
 
-
     #set the variables
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
     
     #testing start
-    total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch'] == empty_war_df['Branch'].values[0])
+    total_sum_of_closing_sum_for_old_search = old_war_df_check.where(old_war_df_check['Branch']==empty_war_df['Branch'].values[1])
     total_sum_of_closing_sum_for_old = total_sum_of_closing_sum_for_old_search['Closing_Balance'].sum()
+    #testin ending
 
-
-    #testin edn
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
     total_sum_of_out_to_check_from_war = war_total_out['Total_out_sum'].sum()
     #check that all the items total from previous month is there
@@ -350,7 +344,6 @@ def sedning_email(replyFor, subject,results,counts_of_check_status_open_balnce, 
     server.sendmail(msg['From'], msg['To'], msg.as_string())
 
     server.quit()
-print(total_sum_of_closing_sum_for_old)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def sedning_email_wrong(replyFor, subject):
