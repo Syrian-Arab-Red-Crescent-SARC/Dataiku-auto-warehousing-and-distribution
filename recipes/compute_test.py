@@ -142,6 +142,10 @@ def old_war_check():
     war_to_check = dataiku.Dataset("final_check")
     old_war_df = war_to_check.get_dataframe()
 
+    #adding and Testing
+    war_to_check_open_totlo = dataiku.Dataset("wearhouse_row_compning_ok_month_prepared")
+    old_war_df_check = war_to_check_open_totlo.get_dataframe()
+
     war_to_check_total_out = dataiku.Dataset("wearhouse_row_data_for_check_wiht_dis")
     war_total_out = war_to_check_total_out.get_dataframe()
 
