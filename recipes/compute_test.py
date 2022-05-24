@@ -157,7 +157,7 @@ def old_open_balance_check():
     return total_sum_of_closing_sum_for_old
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-def old_war_check(test):
+def old_war_check():
     #geting the need df datafram
     war_to_check = dataiku.Dataset("final_check")
     old_war_df = war_to_check.get_dataframe()
@@ -172,7 +172,7 @@ def old_war_check(test):
     counts_of_check_status_open_balnce = old_war_df['check_status_open_balnce'].value_counts()
     counts_of_check_status = old_war_df['check_status'].value_counts()
 
-    total_sum_of_closing_sum_for_old = test
+    total_sum_of_closing_sum_for_old = old_open_balance_check()
 
     total_sum_of_open_balnce_for_now = old_war_df['Open_Balance_sum'].sum()
     total_sum_of_out_to_check_from_war = war_total_out['Total_out_sum'].sum()
@@ -428,8 +428,8 @@ def controller ():
     elif (status == 2) or (status == 3):
         sedning_email_wrong(replyFor, subject)
     elif status == 1:
-        test = 55
-        war_check_build(test)
+        old_open_balance_check()
+        war_check_build()
         dis_check_build()
         old_war_check()
         dis_check()
