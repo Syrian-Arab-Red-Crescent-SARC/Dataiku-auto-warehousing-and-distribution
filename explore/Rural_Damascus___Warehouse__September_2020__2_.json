@@ -38,7 +38,9 @@
       "Nots": 183,
       "Branch Code": 100,
       "Sub Branch code": 128,
-      "Unique Items Code": 143
+      "Unique Items Code": 143,
+      "Receiving Date_iso": 150,
+      "Sending Date_iso": 135
     },
     "coloring": {
       "scheme": "MEANING_AND_STATUS",
@@ -90,9 +92,7 @@
           "columnType": "ALPHANUM",
           "currentMode": "ALPHANUM",
           "sort": "count",
-          "selectedValues": {
-            "Deir-ez-zor دير الزور": true
-          }
+          "selectedValues": {}
         },
         "alphanumFilter": {
           "type": "alphanum",
