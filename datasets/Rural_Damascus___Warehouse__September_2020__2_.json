@@ -29,7 +29,7 @@
     "skipRowsBeforeHeader": 0,
     "parseHeaderRow": true,
     "skipRowsAfterHeader": 0,
-    "sheets": "*Warehouses"
+    "sheets": "*WAR"
   },
   "partitioning": {
     "ignoreNonMatchingFile": false,
@@ -37,11 +37,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 18,
+    "versionNumber": 19,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1658313936065
+    "lastModifiedOn": 1659611345300
   },
   "creationTag": {
     "versionNumber": 0,
